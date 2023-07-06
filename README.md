@@ -1,1 +1,2 @@
-# Skin-Disease-Detector
+# Skin Diseases Detector
+## Project Description here
