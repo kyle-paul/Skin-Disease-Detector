@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for
 import os
 # import urllib.request
 from werkzeug.utils import secure_filename
-import numpy as np
 
 app = Flask(__name__)
 
