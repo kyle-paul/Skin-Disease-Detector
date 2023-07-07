@@ -315,6 +315,12 @@ body.light .switch::before{
   color: var(--text-color);
 }
 
+.content input {
+    font-size: var(--content-font-size);
+    font-weight: 500;
+    color: var(--text-color);
+  }
+
 .content .button-group {
   margin-left:10px;
 }
