@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skin Diseases Detector</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='uploader.css') }}">
-</head>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'uploader.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'experience.css') }}" />
+  </head>
 
-<body>
+  <body>
     <!-- experience.html -->
-    {% extends "base.html" %}
+    {% extends 'base.html' %}
 
     <!-- content block -->
     {% block content %}
-        <h1>Experience the app</h1>
-        
-        <div class="content">
-            <!-- file uploader -->
-            <div class="wrapper">
-                <h1>File Uploader</h1>
-                <form action="/upload" method="POST" enctype="multipart/form-data">
-                    <input class="file-input" type="file" name="file" accept=".png,.jpg,.jpeg,.gif">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <p>Browse File to Upload</p>
-                    <input type="submit" value="Upload">
-                </form>
-                <section class="progress-area"></section>
-                <section class="uploaded-area"></section>
-            </div>
-        </div>
-    {% endblock %}
+      <h1>Experience the app</h1>
+      <!--
+      <div class="content container">
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+            <input type="file" name="file" id="files" accept=".png,.jpg,.jpeg,.gif" class="hidden"/>
+            <label for="files" class="file-upload ">
+                <h3>Drag and drop file here</h3>
+                <span>- OR -</span>
+                <strong>Browse</strong>
+            </label>
+            <input type="submit" value="Upload now" />
+        </form>
+        -->
 
-</body>
+        <!-- Initialize webcam -->
+        <video id="webcam" autoplay></video>
+        <div class="button-group" role="group" aria-label="Basic outlined example">
+            <button type="button" class="button animate" id="enableCam">Enable Webcam</button>
+            <button type="button" class="button animate dataCollector" data-1hot="0" data-name="Class 1">Gather Class
+                1</button>
+            <button type="button" class="button animate dataCollector" data-1hot="1" data-name="Class 2">Gather Class
+                2</button>
+            <button type="button" class="button animate" id="train">Train &amp; Predict!</button>
+            <button type="button" class="button animate" id="reset">Reset</button>
+        </div>
+
+      </div>
+    {% endblock %}
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="{{ url_for('static', filename='experience.js') }}"></script>
+  </body>
 </html>

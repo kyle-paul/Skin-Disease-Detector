@@ -1,0 +1,34 @@
+/* ===== root style ===== */
+:root{
+    /* ===== Colors ===== */
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+    --button-color: #3a3b3c;
+    --animate-color: #695CFE;
+    --webcam-color: #000000;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+
+video {
+    clear: both;
+    display: block;
+    margin: 10px;
+    background: var(--webcam-color);
+    width: 640px;
+    height: 480px;
+    border-radius: 2%;
+}
+
+.removed {
+    display: none;
+}
