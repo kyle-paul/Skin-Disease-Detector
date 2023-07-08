@@ -1,2 +1,7 @@
 .venv/
 __pycache__/
+HAM10000_images_part_1/
+HAM10000_images_part_2/
+main_data/
+reorganized/
+output/
