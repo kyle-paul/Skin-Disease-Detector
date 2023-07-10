@@ -3,17 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Skin Diseases Detector</title>
+    <title>Home</title>
   </head>
-
   <body>
     <!-- base.html -->
     {% extends 'base.html' %}
     <!-- content block -->
-    {% block content %}
-        <h1>Home Page</h1>
-        <p>Page description here</p>
-        <a href="{{ url_for('experience') }}" class="button">experience</a>
+    {% block main %}
+      
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1 class="fw-bold fs-3">Home Page</h1>
+            <p>Page description here</p>
+            <a href="{{ url_for('experience') }}" class="button">experience</a>
+          </div>
+          <div class="col">Column</div>
+        </div>
+      </div>
+      
     {% endblock %}
   </body>
 </html>
