@@ -1,1 +1,5 @@
 flask
+tensorflow
+opencv-python
+Pillow
+numpy

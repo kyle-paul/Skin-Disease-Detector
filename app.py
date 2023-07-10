@@ -16,7 +16,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 10 # 10 MB limit
 
 # Load model
-model_path = 'model/fine-tune-model.h5'
+model_path = 'archive/best_model_and_weights/fine-tune-model.pb/fine-tune-model.h5'
 classes = ['Actinic keratoses and intraepithelial carcinoma', 'basal cell carcinoma', 'benign keratosis-like lesions', 'dermatofibroma', 'melanoma', 'melanocytic nevi', 'vascular lesions']
 model = tf.keras.models.load_model(model_path)
 
