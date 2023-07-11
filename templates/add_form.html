@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Response Form</title>
+  </head>
+  <body>
+    <!-- base.html -->
+    {% extends 'base.html' %}
+
+    {% block main %}
+      <div class="container" style="width: 80%;">
+        {% for message in get_flashed_messages() %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <table class="bg-light table table-hover table-striped">
+            {% for our_user_form in our_user_forms %}
+              <tr>
+                <td>{{ our_user_form.id }}. {{ our_user_form.name }} - {{ our_user_form.email }}</td>
+              </tr>
+            {% endfor %}
+          </table>
+        {% endfor %}
+
+        {% if name %}
+
+        {% else %}
+          <div class="shadow-sm p-3 mb-5 bg-light rounded">
+            <h1>Fill in the response form</h1>
+            <br />
+            <form method="POST">
+              {{ form.hidden_tag() }}
+              {{ form.name.label(class = 'form-label') }}
+              {{ form.name(class = 'form-control') }}
+              {{ form.email.label(class = 'form-label mt-4') }}
+              {{ form.email(class = 'form-control') }}
+              <br />
+              {{ form.submit(class = 'btn btn-primary') }}
+            </form>
+          </div>
+          <br /><br /><br />
+          <table class="bg-light table table-hover table-striped">
+            {% for our_user_form in our_user_forms %}
+              <tr>
+                <td>{{ our_user_form.id }}. {{ our_user_form.name }} - {{ our_user_form.email }}</td>
+              </tr>
+            {% endfor %}
+          </table>
+        {% endif %}
+      </div>
+    {% endblock %}
+  </body>
+</html>

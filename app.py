@@ -26,23 +26,6 @@ model_path = 'archive/best_model_and_weights/fine-tune-model.pb/fine-tune-model.
 classes = ['Actinic keratoses and intraepithelial carcinoma', 'basal cell carcinoma', 'benign keratosis-like lesions', 'dermatofibroma', 'melanoma', 'melanocytic nevi', 'vascular lesions']
 model = tf.keras.models.load_model(model_path)
 
-class UserForms(db.Model):
-    id = db.Column(db.Integer, primary_key=True)  
-    name = db.Column(db.String(200), nullable=False)
-    email =  db.Column(db.String(200), nullable=False, unique=True)
-    date_added = db.Column(db.DateTime, default=datetime.utcnow)
-    
-    # Create a string
-    def __repr__(self):
-        return '<Name %r>' % self.name
-    
-
-# Create a form class
-class ResponseForm(FlaskForm):
-    name = StringField("Enter your name:", validators=[DataRequired()])
-    submit = SubmitField("Submit")
-    
-
 @app.route("/")
 def home():
     return render_template("home.html")
@@ -85,17 +68,40 @@ def predictor():
         return render_template('experience.html', prediction=classes[class_indx], image_path=image_path, progress_bar_animated=True) 
     else: return "No image uploaded"
     
+
+class UserForms(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  
+    name = db.Column(db.String(200), nullable=False)
+    email =  db.Column(db.String(200), nullable=False, unique=True)
+    date_added = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    # Create a string
+    def __repr__(self):
+        return '<Name %r>' % self.name
+    
+# Create a form class
+class ResponseForm(FlaskForm):
+    name = StringField("Enter your name:", validators=[DataRequired()])
+    email = StringField("Enter your email:", validators=[DataRequired()])
+    submit = SubmitField("Submit")
     
 @app.route("/form", methods=["GET", "POST"]) 
-def form():
+def add_form():
     name = None
     form = ResponseForm()
     # Validate form
     if form.validate_on_submit():
+        userform = UserForms.query.filter_by(email=form.email.data).first()
+        if userform is None:
+            userform = UserForms(name=form.name.data, email=form.email.data)
+            db.session.add(userform)
+            db.session.commit()
         name = form.name.data
         form.name.data = ''
+        form.email.data = ''
         flash("Form Submitted Successfully!")
-    return render_template("form.html", name=name, form=form)
+    our_user_forms = UserForms.query.order_by(UserForms.date_added)
+    return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms)
 
 # Invalid URL
 @app.errorhandler(404)
