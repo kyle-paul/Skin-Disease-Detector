@@ -4,16 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form updation</title>
-    <link rel="stylesheet" href="static/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="static/css/style.css" />
   </head>
   <body>
     <!-- base.html -->
-    <!-- nav bar -->
-    {% include 'navbar.html' %}
-    <!-- off-canvas -->
-    {% include 'sidebar.html' %}
+    {% extends 'base.html' %}
 
     {% block main %}
       <div class="container" style="width: 80%;">
@@ -22,13 +16,6 @@
             {{ message }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
-          <table class="bg-light table table-hover table-striped">
-            {% for our_user_form in our_user_forms %}
-              <tr>
-                <td>{{ our_user_form.id }}. {{ our_user_form.name }} - {{ our_user_form.email }}</td>
-              </tr>
-            {% endfor %}
-          </table>
         {% endfor %}
 
         {% if name %}
@@ -37,26 +24,26 @@
           <div class="shadow-sm p-3 mb-5 bg-light rounded">
             <h1>Edit form information</h1>
             <br />
-            <form method="POST">
+            <form action="/update_form/{{ name_to_update.id }}" method="POST">
               {{ form.hidden_tag() }}
               {{ form.name.label(class = 'form-label') }}
-              {{ form.name(class = 'form-control') }}
+              {{ form.name(class = 'form-control', value = name_to_update.name) }}
               {{ form.email.label(class = 'form-label mt-4') }}
-              {{ form.email(class = 'form-control') }}
+              {{ form.email(class = 'form-control', value = name_to_update.email) }}
               <br />
-              {{ form.submit(class = 'btn btn-primary') }}
+
+              <div class="d-flex justify-content-between">
+                {{ form.submit(class = 'btn btn-primary') }}
+                <div class="d-flex align-items-center ms-auto">
+                  {% for message in get_flashed_messages() %}
+                    <a class="btn btn-primary" href="{{ url_for('add_form') }}" role="button">Back to form</a>
+                  {% endfor %}
+                </div>
+            </div>
             </form>
           </div>
         {% endif %}
       </div>
     {% endblock %}
-
-    <script src="static/js/editing.js"></script>
-    <script src="static/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
-    <script src="static/js/jquery-3.5.1.js"></script>
-    <script src="static/js/jquery.dataTables.min.js"></script>
-    <script src="static/js/dataTables.bootstrap5.min.js"></script>
-    <script src="static/js/script.js"></script>
   </body>
 </html>

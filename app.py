@@ -85,7 +85,7 @@ class ResponseForm(FlaskForm):
     email = StringField("Enter your email:", validators=[DataRequired()])
     submit = SubmitField("Submit")
     
-@app.route("/form", methods=["GET", "POST"]) 
+@app.route("/add_form", methods=["GET", "POST"]) 
 def add_form():
     name = None
     form = ResponseForm()
@@ -103,7 +103,7 @@ def add_form():
     our_user_forms = UserForms.query.order_by(UserForms.date_added)
     return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms)
 
-@app.route("/update_form/<int:id>", methods=["GET", "POST"])
+@app.route('/update_form/<int:id>', methods=["GET", "POST"])
 def update_form(id):
     form = ResponseForm()
     name_to_update = UserForms.query.get_or_404(id)
