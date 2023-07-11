@@ -53,7 +53,6 @@ def uploader():
 
 @app.route("/predict", methods=["GET", "POST"]) 
 def predictor(): 
-    # get the image path from the session variable 
     image_path = session.get('image_path') 
     if image_path: 
         img = cv2.imread(image_path) 
@@ -63,7 +62,16 @@ def predictor():
         return render_template('experience.html', prediction=classes[class_indx], image_path=image_path, progress_bar_animated=True) 
     else: return "No image uploaded"
     
-    
+
+# Invalid URL
+@app.errorhandler(404)
+def page_not_found(e):
+	return render_template("404.html"), 404
+
+# Internal Server Error
+@app.errorhandler(500)
+def page_not_found(e):
+	return render_template("500.html"), 500
 
 if __name__ == "__main__":
     app.run(debug=True)
