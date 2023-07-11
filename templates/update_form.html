@@ -24,12 +24,14 @@
           <div class="shadow-sm p-3 mb-5 bg-light rounded">
             <h1>Edit form information</h1>
             <br />
-            <form action="/update_form/{{ name_to_update.id }}" method="POST">
+            <form action="/update_form/{{ form_to_update.id }}" method="POST">
               {{ form.hidden_tag() }}
               {{ form.name.label(class = 'form-label') }}
-              {{ form.name(class = 'form-control', value = name_to_update.name) }}
+              {{ form.name(class = 'form-control', value = form_to_update.name) }}
               {{ form.email.label(class = 'form-label mt-4') }}
-              {{ form.email(class = 'form-control', value = name_to_update.email) }}
+              {{ form.email(class = 'form-control', value = form_to_update.email) }}
+              {{ form.provisional_diagnosis.label(class = 'form-label mt-4') }}
+              {{ form.provisional_diagnosis(class = 'form-control', value = form_to_update.provisional_diagnosis) }}
               <br />
 
               <div class="d-flex justify-content-between">
