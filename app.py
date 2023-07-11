@@ -103,6 +103,25 @@ def add_form():
     our_user_forms = UserForms.query.order_by(UserForms.date_added)
     return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms)
 
+@app.route("/update_form/<int:id>", methods=["GET", "POST"])
+def update_form(id):
+    form = ResponseForm()
+    name_to_update = UserForms.query.get_or_404(id)
+    if request.method == "POST":
+        name_to_update.name = request.form['name']
+        name_to_update.email = request.form['email']
+        try:
+            db.session.commit()
+            flash("Form information has been updated successfully!")
+            return render_template("update_form.html", name_to_update=name_to_update, form=form)
+        except:
+            flash("Failure: form information can not be updated!")
+            return render_template("update_form.html", name_to_update=name_to_update, form=form)
+    else:
+        return render_template("update_form.html", name_to_update=name_to_update, form=form)
+        
+            
+
 # Invalid URL
 @app.errorhandler(404)
 def page_not_found(e):

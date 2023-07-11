@@ -3,11 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form registration</title>
+    <title>Form updation</title>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="static/css/style.css" />
   </head>
   <body>
     <!-- base.html -->
-    {% extends 'base.html' %}
+    <!-- nav bar -->
+    {% include 'navbar.html' %}
+    <!-- off-canvas -->
+    {% include 'sidebar.html' %}
 
     {% block main %}
       <div class="container" style="width: 80%;">
@@ -29,7 +35,7 @@
 
         {% else %}
           <div class="shadow-sm p-3 mb-5 bg-light rounded">
-            <h1>Fill in the form</h1>
+            <h1>Edit form information</h1>
             <br />
             <form method="POST">
               {{ form.hidden_tag() }}
@@ -41,21 +47,16 @@
               {{ form.submit(class = 'btn btn-primary') }}
             </form>
           </div>
-          <br /><br /><br />
-          <table class="bg-light table table-hover table-striped">
-            {% for our_user_form in our_user_forms %}
-            <tr>
-              <td class="d-flex justify-content-between">{{ our_user_form.id }}. {{ our_user_form.name }} - {{ our_user_form.email }} 
-                <div class="d-flex align-items-center ms-auto">
-                  <a href="{{ url_for('update_form', id=our_user_form.id) }}" type="button" class="badge rounded-pill btn btn-primary me-3 text-decoration-none">Edit</a>
-                  <a href="{{ url_for('update_form', id=our_user_form.id) }}" type="button" class="badge rounded-pill btn btn-danger me-3 text-decoration-none">Remove</a>
-                </div>
-              </td>
-            </tr>
-            {% endfor %}
-          </table>
         {% endif %}
       </div>
     {% endblock %}
+
+    <script src="static/js/editing.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+    <script src="static/js/jquery-3.5.1.js"></script>
+    <script src="static/js/jquery.dataTables.min.js"></script>
+    <script src="static/js/dataTables.bootstrap5.min.js"></script>
+    <script src="static/js/script.js"></script>
   </body>
 </html>
