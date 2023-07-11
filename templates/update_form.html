@@ -30,18 +30,37 @@
               {{ form.name(class = 'form-control', value = form_to_update.name) }}
               {{ form.email.label(class = 'form-label mt-4') }}
               {{ form.email(class = 'form-control', value = form_to_update.email) }}
-              {{ form.provisional_diagnosis.label(class = 'form-label mt-4') }}
-              {{ form.provisional_diagnosis(class = 'form-control', value = form_to_update.provisional_diagnosis) }}
+              {{ form.description.label(class = 'form-label mt-4') }}
+              {{ form.description(class = 'form-control', value = form_to_update.description) }}
               <br />
 
               <div class="d-flex justify-content-between">
                 {{ form.submit(class = 'btn btn-primary') }}
+                <a class="btn btn-danger ms-3" href="" role="button" data-bs-toggle="modal" data-bs-target="#remove_form">Remove</a>
                 <div class="d-flex align-items-center ms-auto">
                   {% for message in get_flashed_messages() %}
                     <a class="btn btn-primary" href="{{ url_for('add_form') }}" role="button">Back to form</a>
                   {% endfor %}
                 </div>
-            </div>
+              </div>
+
+              <!-- Modal -->
+              <div class="modal fade" id="remove_form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content bg-dark">
+                    <div class="modal-header text-white">
+                      <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-white">Are you sure to remove this form permanently?</div>
+                    <div class="modal-footer">
+                      <a class="btn btn-outline-primary" href="{{ url_for('delete_form', id = form_to_update.id) }}" role="button">Remove now</a>
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </form>
           </div>
         {% endif %}

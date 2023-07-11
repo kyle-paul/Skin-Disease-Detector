@@ -16,14 +16,16 @@ app = Flask(__name__)
 
 UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user_forms.db'
 app.config['SECRET_KEY'] = "hacker@hackathon"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 10 # 10 MB limit
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user_forms.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234@localhost/user_forms'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-# Load model
+# Load models
 model_path = 'archive/best_model_and_weights/fine-tune-model.pb/fine-tune-model.h5'
 classes = ['Actinic keratoses and intraepithelial carcinoma', 'basal cell carcinoma', 'benign keratosis-like lesions', 'dermatofibroma', 'melanoma', 'melanocytic nevi', 'vascular lesions']
 model = tf.keras.models.load_model(model_path)
@@ -75,7 +77,7 @@ class UserForms(db.Model):
     id = db.Column(db.Integer, primary_key=True)  
     name = db.Column(db.String(200), nullable=False)
     email =  db.Column(db.String(200), nullable=False, unique=True)
-    provisional_diagnosis =  db.Column(db.String(200), db.ForeignKey("user_forms.id", name="provisional_diagnosis"), nullable=False, unique=True)
+    description =  db.Column(db.String(200), nullable=False, unique=True)
     date_added = db.Column(db.DateTime, default=datetime.utcnow)
     
     # Create a string
@@ -86,7 +88,7 @@ class UserForms(db.Model):
 class ResponseForm(FlaskForm):
     name = StringField("Enter your name:", validators=[DataRequired()])
     email = StringField("Enter your email:", validators=[DataRequired()])
-    provisional_diagnosis = StringField("copy and paste the AI's privisional diagnosis of your skin disease:", validators=[DataRequired()])
+    description = StringField("Enter your description:", validators=[DataRequired()])
     submit = SubmitField("Submit")
     
 @app.route("/add_form", methods=["GET", "POST"]) 
@@ -97,16 +99,16 @@ def add_form():
     if form.validate_on_submit():
         userform = UserForms.query.filter_by(email=form.email.data).first()
         if userform is None:
-            userform = UserForms(name=form.name.data, email=form.email.data, provisional_diagnosis=form.provisional_diagnosis.data)
+            userform = UserForms(name=form.name.data, email=form.email.data, description=form.description.data)
             db.session.add(userform)
             db.session.commit()
         name = form.name.data
         form.name.data = ''
         form.email.data = ''
-        form.provisional_diagnosis.data = ''
+        form.description.data = ''
         flash("Form Submitted Successfully!")
     our_user_forms = UserForms.query.order_by(UserForms.date_added)
-    return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms)
+    return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms, delete=False)
 
 @app.route('/update_form/<int:id>', methods=["GET", "POST"])
 def update_form(id):
@@ -115,7 +117,7 @@ def update_form(id):
     if request.method == "POST":
         form_to_update.name = request.form['name']
         form_to_update.email = request.form['email']
-        form_to_update.provisional_diagnosis = request.form['provisional_diagnosis']
+        form_to_update.description = request.form['description']
         try:
             db.session.commit()
             flash("Form information has been updated successfully!")
@@ -126,6 +128,21 @@ def update_form(id):
     else:
         return render_template("update_form.html", form_to_update=form_to_update, form=form)
         
+@app.route('/delete_form/<int:id>', methods=["GET", "POST"])
+def delete_form(id):
+    name = None
+    form = ResponseForm()
+    form_to_delete = UserForms.query.get_or_404(id)
+    
+    try:
+        db.session.delete(form_to_delete)
+        db.session.commit()
+        flash("Form has been deleted successfully!")
+        our_user_forms = UserForms.query.order_by(UserForms.date_added)
+        return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms, delete=True)
+    except:
+        flash("There is a problem! Please try again")
+        return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms)
             
 
 # Invalid URL
