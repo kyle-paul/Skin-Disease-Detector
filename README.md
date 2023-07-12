@@ -112,6 +112,8 @@ Now, the website should be available at the port `127.0.0.1:5000`
 ### Training model
 #### **Transfer learning with Mobilenet_v2**
 
+MobileNetV2 is a neural network architecture that is designed for efficient image classification on mobile devices. It is based on an inverted residual structure, where the input and output of each block are thin bottleneck layers, and the intermediate layer is expanded with depthwise convolutions. This reduces the computational cost and the number of parameters, while preserving the representational power of the network. MobileNetV2 also uses linear bottlenecks, which means that the last layer of each block does not have a non-linearity, to avoid information loss. MobileNetV2 can achieve state-of-the-art performance on multiple tasks and benchmarks, as well as across different model sizes.
+
 | The model base architecture: | 
 | -------- | 
 | ![Syw81t3Fn](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/95c51fd8-3f3e-4754-b286-eb917e78b564) | 
@@ -135,6 +137,7 @@ Now, the website should be available at the port `127.0.0.1:5000`
 | -------- | -------- | 
 | ![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/5046bed2-a847-4ec5-aba4-129c22dee684) | ![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/9caad979-c5d2-4463-a42d-6714aa4eadd8)| 
 
+The model is learning well from the data and has low error on both training and validation datasets. The learning curves of a well-fit model show high performance and a small gap between the training and validation datasets.
 
 | CNN0 accuracy | CNN0 loss |
 | -------- | -------- | 

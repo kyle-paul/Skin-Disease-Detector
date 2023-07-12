@@ -37,6 +37,23 @@ login_check = False
 def home():
     return render_template("home.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
 
+
+@app.route("/home/data_gathering")
+def data_gathering():
+    return render_template("data_gathering.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
+
+@app.route("/home/training_process")
+def training_process():
+    return render_template("training_process.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
+
+@app.route("/home/result_metrics")
+def result_metrics():
+    return render_template("result_metrics.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
+
+@app.route("/home/ultimate_goal")
+def ultimate_goal():
+    return render_template("ultimate_goal.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
+
 @app.route("/experience", methods=["GET"])
 def experience():
     return render_template("experience.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
@@ -180,6 +197,12 @@ def add_form():
             userform = UsersDB(name=form.name.data, email=form.email.data, description=form.description.data)
             db.session.add(userform)
             db.session.commit()
+        else:
+            if request.method == "POST":
+                userform.name = request.form['name']
+                userform.email = request.form['email']
+                userform.description = request.form['description']
+                db.session.commit()
         name = form.name.data
         form.name.data = ''
         form.email.data = ''

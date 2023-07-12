@@ -7,6 +7,7 @@ button {
   --offcanvas-width: 270px;
   --topNavbarHeight: 48px;
   --offcanvas-content-margin-left: 300px;
+  --offcanvas-content-margin-right: 60px;
   --offcanvas-content-margin-top: 80px;
 }
 .sidebar-nav {
@@ -29,6 +30,7 @@ button {
   .main {
     margin-left: var(--offcanvas-content-margin-left);
     margin-top: var(--offcanvas-content-margin-top);
+    margin-right: var(--offcanvas-content-margin-right);
   }
 
   .offcanvas-backdrop::before {
