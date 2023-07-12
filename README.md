@@ -78,9 +78,10 @@
 
 #### **Train from scratch**
 
-| The model architecture | 
-| -------- | 
-| ![cnn architecture from scratch](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/7cc51bcf-a140-4b58-95ea-7cf74b3bf94e) | 
+| The model architecture | | 
+| -------- | --------| 
+| ![cnn architecture from scratch](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/7cc51bcf-a140-4b58-95ea-7cf74b3bf94e) |![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/78b5c973-bba6-417a-b889-1bb05197710a)
+ | 
 
 ### **Metrics**
 
