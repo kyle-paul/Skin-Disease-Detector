@@ -11,6 +11,45 @@ The web application also provides a telehealth service that connects users with 
 
 My web application aims to empower people with skin diseases by providing them with information, education, and support. I hope that my web application can make a positive difference in the lives of millions of people who suffer from skin diseases and improve their health outcomes.
 
+## **Website application**
+### **Video Demo** 
+
+### **How to use the code**
+First you need to clone this repository to your local system. Open terminal and then paste this command line
+```
+git clone https://github.com/kyle-paul/Skin-Disease-Detector.git
+```
+Next move into the cloned directory
+```
+cd Skin-Disease-Detector
+```
+Type this to open your default code editor. As usual, it will open vscode if you use vscode as your default code editor
+```
+. code
+```
+Create a virtual environment with venv to avoid conflicts in library versions and modules
+```
+python -m venv .venv
+```
+Activate the environment
+```
+.\.venv\Scripts\activate
+```
+Install all neccessary libraries with a specific version
+```
+pip install -r requirements.txt
+```
+Now if you want to view all libraries and modules in your virtual environment, paste this command line
+```
+pip freeze
+```
+To run the server backend flask python, run this line of command
+```
+flask --debug run
+```
+Now, the website should be available at the port `127.0.0.1:5000`
+
+
 ## **Training process**
 
 ### **Data gathering**
@@ -100,44 +139,3 @@ My web application aims to empower people with skin diseases by providing them w
 | CNN0 accuracy | CNN0 loss |
 | -------- | -------- | 
 | ![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/39c06426-9d9f-4e74-b756-78d1cb91fbc7)| ![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/1aba4a4d-e099-4271-99f2-d44dc6dd1a67)|
-
-
-
-
-## **Website**
-### **Demo** 
-
-### **How to use the code**
-First you need to clone this repository to your local system. Open terminal and then paste this command line
-```
-git clone https://github.com/kyle-paul/Skin-Disease-Detector.git
-```
-Next move into the cloned directory
-```
-cd Skin-Disease-Detector
-```
-Type this to open your default code editor. As usual, it will open vscode if you use vscode as your default code editor
-```
-. code
-```
-Create a virtual environment with venv to avoid conflicts in library versions and modules
-```
-python -m venv .venv
-```
-Activate the environment
-```
-.\.venv\Scripts\activate
-```
-Install all neccessary libraries with a specific version
-```
-pip install -r requirements.txt
-```
-Now if you want to view all libraries and modules in your virtual environment, paste this command line
-```
-pip freeze
-```
-To run the server backend flask python, run this line of command
-```
-flask --debug run
-```
-Now, the website should be available at the port `127.0.0.1:5000`
