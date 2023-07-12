@@ -1,8 +1,15 @@
-# Skin Diseases Detector
+# Skin Diseases Detector (Using Machine Learning and Telehealth to Detect and Treat Skin Diseases)
 
-## **Problems** 
+## **Project Description** 
+Skin diseases are conditions that affect your skin and may cause rashes, inflammation, itchiness or other skin changes. Some skin diseases are minor, while others can be serious and even life-threatening. One of the major complications of some skin diseases is the increased risk of skin cancer, which is the uncontrolled growth of abnormal skin cells. Skin cancer can be caused by various factors, such as sun exposure, genetics, or infections.
 
-## **How AI with computer vision can solve**
+Many regions in the world have limited access to healthcare services, which makes it difficult for people to get timely and accurate diagnosis and treatment for their skin problems. This can lead to worsening of their condition, lower quality of life, and higher mortality rates.
+
+To address this issue, I have created a web application that uses machine learning to detect and classify seven of the most common and dangerous skin diseases: acne, alopecia areata, eczema, psoriasis, raynaud’s phenomenon, rosacea, and vitiligo. The web application allows users to upload a picture of their skin lesion and get a provisional diagnosis from the AI model. The provisional diagnosis is not a substitute for a professional medical opinion, but rather a guidance tool that can help users understand their condition better and seek appropriate care.
+
+The web application also provides a telehealth service that connects users with doctors on my website who can review the provisional diagnosis from the AI model and give an accurate prescription. This way, users can get access to quality healthcare from anywhere in the world, without having to travel long distances or wait for appointments. The telehealth service also helps reduce the burden on the healthcare system and improve the efficiency and effectiveness of care delivery.
+
+My web application aims to empower people with skin diseases by providing them with information, education, and support. I hope that my web application can make a positive difference in the lives of millions of people who suffer from skin diseases and improve their health outcomes.
 
 ## **Training process**
 
@@ -81,15 +88,13 @@
 
 | The model architecture | | 
 | -------- | --------| 
-| ![cnn architecture from scratch](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/7cc51bcf-a140-4b58-95ea-7cf74b3bf94e) |![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/78b5c973-bba6-417a-b889-1bb05197710a)
- | 
+| ![cnn architecture from scratch](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/7cc51bcf-a140-4b58-95ea-7cf74b3bf94e) |![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/78b5c973-bba6-417a-b889-1bb05197710a)| 
 
 ### **Metrics**
 
 | Before fine-tuning | After fine-tuning |
 | -------- | -------- | 
-| ![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/5046bed2-a847-4ec5-aba4-129c22dee684) | ![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/9caad979-c5d2-4463-a42d-6714aa4eadd8)
-| 
+| ![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/5046bed2-a847-4ec5-aba4-129c22dee684) | ![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/9caad979-c5d2-4463-a42d-6714aa4eadd8)| 
 
 
 | CNN0 accuracy | CNN0 loss |
