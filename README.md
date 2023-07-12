@@ -73,6 +73,7 @@
 | The fine-tuned model with 100 layers unfreezed/trainable | 
 | -------- | 
 | ![ryuu1Y3K2](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/d71b2a2b-6abb-4848-913f-531fbd5b901c) | 
+| ![transfer](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/b256ecbc-2a16-4d75-ae2c-52f08d208873)|
 
 
 #### **Train from scratch**
