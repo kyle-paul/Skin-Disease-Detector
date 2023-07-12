@@ -9,6 +9,7 @@ from wtforms.validators import DataRequired
 import os
 from PIL import Image
 from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash, check_password_hash
 import cv2
 import numpy as np
 
@@ -20,8 +21,7 @@ app.config['SECRET_KEY'] = "hacker@hackathon"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 10 # 10 MB limit
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user_forms.db'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234@localhost/user_forms'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -72,12 +72,24 @@ def predictor():
         return render_template('experience.html', prediction=classes[class_indx], image_path=image_path, progress_bar_animated=True) 
     else: return "No image uploaded"
     
+# Create a model (database)
 class UsersDB(db.Model):
     id = db.Column(db.Integer, primary_key=True)  
     name = db.Column(db.String(200), nullable=False)
     email =  db.Column(db.String(200), nullable=False, unique=True)
     user_name = db.Column(db.String(200), nullable=False, unique=True)
-    password = db.Column(db.String(200), nullable=False)
+    password_hash = db.Column(db.String(200), nullable=False)
+    @property
+    def password():
+        raise AttributeError('password is not a readable attribute')
+    
+    @password.setter
+    def password(self, password):
+        self.password_hash = generate_password_hash(password)
+    
+    def verify(self, password):
+        return check_password_hash(self.password_hash, password)
+    
     description =  db.Column(db.String(200), nullable=False)
     date_added = db.Column(db.DateTime, default=datetime.utcnow)
     
@@ -89,7 +101,7 @@ class Registration(FlaskForm):
     name = StringField("Enter your name:", validators=[DataRequired()])
     email = StringField("Enter your email:", validators=[DataRequired()])
     user_name = StringField("Enter your user name:", validators=[DataRequired()])
-    password = StringField("Enter your password:", validators=[DataRequired()])
+    password_hash = StringField("Enter your password:", validators=[DataRequired()])
     submit = SubmitField("Register now")    
 
 
@@ -106,7 +118,7 @@ def registration():
         user_name = UsersDB.query.filter_by(user_name=form.user_name.data).first()
         email = UsersDB.query.filter_by(user_name=form.email.data).first()
         if user_name is None and email is None:
-            user = UsersDB(name=form.name.data, email=form.email.data, user_name=form.user_name.data, password=form.password.data)
+            user = UsersDB(name=form.name.data, email=form.email.data, user_name=form.user_name.data, password_hash=form.password_hash.data)
             db.session.add(user)
             db.session.commit()
         name = form.name.data
@@ -115,8 +127,6 @@ def registration():
         form.user_name.data = ''
         form.password.data = ''
         flash("Form Submitted Successfully!")
-    else:
-        flash("This account has already exiisted")
     registration_form = UsersDB.query.order_by(UsersDB.date_added)
     return render_template("registration.html", name=name, form=form, registration_form=registration_form)
 
