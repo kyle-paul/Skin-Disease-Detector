@@ -14,11 +14,11 @@
         {% for message in get_flashed_messages() %}
           <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ message }}
-            {% if delete==True%}
-            <a class="btn-close" href="{{ url_for('add_form') }}" role="button"></a>
+            {% if delete == True %}
+              <a class="btn-close" href="{{ url_for('add_form') }}" role="button"></a>
             {% else %}
-            <button type="buttosn" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            {%endif%}
+              <button type="buttosn" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            {% endif %}
           </div>
           {% if delete == False %}
             <table class="bg-light table table-hover table-striped">
@@ -60,7 +60,7 @@
             </form>
           </div>
           <br /><br /><br />
-          <table class=" table table-hover table-striped">
+          <table class="table table-hover table-striped">
             {% for our_user_form in our_user_forms %}
               <tr>
                 <td class="d-flex justify-content-between">

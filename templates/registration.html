@@ -16,34 +16,40 @@
       </a>
     </div>
 
-    <div class="card mb-3">
-      <div class="card-body">
-        <div class="shadow p-3 mb-5 bg-light rounded me-auto ms-auto" style="width: 30rem;">
-          <h1>Registration</h1>
-          <br />
-          <form method="POST">
-            {{ form.hidden_tag() }}
-            {{ form.name.label(class = 'form-label') }}
-            {{ form.name(class = 'form-control') }}
+    {% if email %}
 
-            {{ form.email.label(class = 'form-label mt-4') }}
-            {{ form.email(class = 'form-control') }}
-
-            {{ form.user_name.label(class = 'form-label mt-4') }}
-            {{ form.user_name(class = 'form-control') }}
-
-            {{ form.password_hash.label(class = 'form-label mt-4') }}
-            {{ form.password_hash(class = 'form-control') }}
+    {% else %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="shadow p-3 mb-5 bg-light rounded me-auto ms-auto" style="width: 30rem;">
+            <h1>Registration</h1>
             <br />
-            <div class="d-grid gap-2">
-              {{ form.submit(class = 'btn btn-primary') }}
-              <a href="{{ url_for('login') }}" type="button" class="btn btn-outline-primary" role="button">Log in if you have an account</a>
-            </div>
-          </form>
+            <form method="POST">
+              {{ form.hidden_tag() }}
+              {{ form.name.label(class = 'form-label') }}
+              {{ form.name(class = 'form-control') }}
+
+              {{ form.email.label(class = 'form-label mt-4') }}
+              {{ form.email(class = 'form-control') }}
+
+              {{ form.user_name.label(class = 'form-label mt-4') }}
+              {{ form.user_name(class = 'form-control') }}
+
+              {{ form.password_hash.label(class = 'form-label mt-4') }}
+              {{ form.password_hash(class = 'form-control') }}
+
+              {{ form.password_hash2.label(class = 'form-label mt-4') }}
+              {{ form.password_hash2(class = 'form-control') }}
+              <br />
+              <div class="d-grid gap-2">
+                {{ form.submit(class = 'btn btn-primary') }}
+                <a href="{{ url_for('login') }}" type="button" class="btn btn-outline-primary" role="button">Log in if you have an account</a>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-
+    {% endif %}
     <script src="{{ url_for('static', filename = 'js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename = 'js/jquery-3.5.1.js') }}"></script>
     <script src="{{ url_for('static', filename = 'js/jquery.dataTables.min.js') }}"></script>

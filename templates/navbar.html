@@ -7,7 +7,7 @@
         </a>
         <!-- off-canvas trigger -->
 
-        <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold" href="#">Skin Diseases Detector</a>
+        <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold" href="{{url_for('home')}}">Skin Diseases Detector</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar"
             aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,11 +29,17 @@
                         <i class="bi bi-person-fill"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="{{url_for('registration')}}">Sign up</a></li>
-                        <li><a class="dropdown-item" href="#">Log in</a></li>
-                        <li>
-                            <a class="dropdown-item" href="#">Sign out</a>
-                        </li>
+                        {% if login_check == True%}
+                            <li class="dropdown-item">{{email_login}}</li>
+                            <li class="dropdown-item">{{user_name_login}}</li>
+                        {% endif %}
+                        {% if login_check == False%}
+                            <li><a class="dropdown-item" href="{{url_for('registration')}}">Sign up</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('login')}}">Log in</a></li>
+                        {% endif %}
+                        {% if login_check == True%}
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        {% endif %}
                     </ul>
                 </li>
             </ul>

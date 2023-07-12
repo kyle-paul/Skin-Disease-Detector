@@ -4,8 +4,8 @@ from flask_wtf import FlaskForm
 from flask_sqlalchemy import SQLAlchemy 
 from flask_migrate import Migrate
 from datetime import datetime
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms import StringField, SubmitField, PasswordField, BooleanField, ValidationError
+from wtforms.validators import DataRequired, EqualTo, Length
 import os
 from PIL import Image
 from werkzeug.utils import secure_filename
@@ -21,7 +21,7 @@ app.config['SECRET_KEY'] = "hacker@hackathon"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 10 # 10 MB limit
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user_forms.db'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -29,10 +29,13 @@ migrate = Migrate(app, db)
 model_path = 'archive/best_model_and_weights/fine-tune-model.pb/fine-tune-model.h5'
 classes = ['Actinic keratoses and intraepithelial carcinoma', 'basal cell carcinoma', 'benign keratosis-like lesions', 'dermatofibroma', 'melanoma', 'melanocytic nevi', 'vascular lesions']
 model = tf.keras.models.load_model(model_path)
+user_name_login = None
+email_login = None
+login_check = False
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
 
 @app.route("/experience", methods=["GET"])
 def experience():
@@ -77,8 +80,9 @@ class UsersDB(db.Model):
     id = db.Column(db.Integer, primary_key=True)  
     name = db.Column(db.String(200), nullable=False)
     email =  db.Column(db.String(200), nullable=False, unique=True)
-    user_name = db.Column(db.String(200), nullable=False, unique=True)
-    password_hash = db.Column(db.String(200), nullable=False)
+    user_name = db.Column(db.String(200), unique=True)
+    description =  db.Column(db.String(200))
+    password_hash = db.Column(db.String(200))
     @property
     def password():
         raise AttributeError('password is not a readable attribute')
@@ -89,59 +93,76 @@ class UsersDB(db.Model):
     
     def verify(self, password):
         return check_password_hash(self.password_hash, password)
-    
-    description =  db.Column(db.String(200), nullable=False)
     date_added = db.Column(db.DateTime, default=datetime.utcnow)
     
     # Create a string
     def __repr__(self):
         return '<Name %r>' % self.name
-    
+
+# Create the registration form
 class Registration(FlaskForm):
     name = StringField("Enter your name:", validators=[DataRequired()])
     email = StringField("Enter your email:", validators=[DataRequired()])
     user_name = StringField("Enter your user name:", validators=[DataRequired()])
-    password_hash = StringField("Enter your password:", validators=[DataRequired()])
+    password_hash = PasswordField("Enter your password:", validators=[DataRequired(), EqualTo('password_hash2', message='Password Must Match')])
+    password_hash2 = PasswordField("Confirm your password:", validators=[DataRequired()])
     submit = SubmitField("Register now")    
 
+# Create the login form
+class Login(FlaskForm):
+    email = StringField("Enter your email:", validators=[DataRequired()])
+    password_hash = PasswordField("Enter your password:", validators=[DataRequired()])
+    submit = SubmitField("Login now")    
 
 @app.route("/login", methods=["GET", "POST"]) 
 def login():
-    return render_template('login.html')
+    email = None
+    password = None
+    pw_to_check = None
+    passed = None
+    form = Login()
+    # Validate form
+    if form.validate_on_submit():        
+        email = form.email.data
+        password = form.password_hash.data
+        pw_to_check = UsersDB.query.filter_by(email=email).first()
+        passed = check_password_hash(pw_to_check.password_hash, password)
+        if passed == True:
+            global user_name_login
+            global email_login
+            global login_check
+            user_name_login = pw_to_check.user_name
+            email_login = pw_to_check.email
+            login_check = True
+        
+        form.email.data = ''
+        form.password_hash.data = ''
+    return render_template("login.html", email=email, form=form, password=password, pw_to_check=pw_to_check, passed=passed)
 
 @app.route("/registration", methods=["GET", "POST"]) 
 def registration():
-    name = None
+    email = None
     form = Registration()
     # Validate form
     if form.validate_on_submit():
         user_name = UsersDB.query.filter_by(user_name=form.user_name.data).first()
         email = UsersDB.query.filter_by(user_name=form.email.data).first()
         if user_name is None and email is None:
-            user = UsersDB(name=form.name.data, email=form.email.data, user_name=form.user_name.data, password_hash=form.password_hash.data)
+            # Hash password
+            hased_pw = generate_password_hash(form.password_hash.data, "sha256")
+            user = UsersDB(name=form.name.data, email=form.email.data, user_name=form.user_name.data, password_hash=hased_pw)
             db.session.add(user)
             db.session.commit()
-        name = form.name.data
+        email = form.email.data
         form.name.data = ''
         form.email.data = ''
         form.user_name.data = ''
-        form.password.data = ''
-        flash("Form Submitted Successfully!")
+        form.password_hash.data = ''
     registration_form = UsersDB.query.order_by(UsersDB.date_added)
-    return render_template("registration.html", name=name, form=form, registration_form=registration_form)
+    return render_template("registration.html", email=email, form=form, registration_form=registration_form)
 
-class UserForms(db.Model):
-    id = db.Column(db.Integer, primary_key=True)  
-    name = db.Column(db.String(200), nullable=False)
-    email =  db.Column(db.String(200), nullable=False, unique=True)
-    description =  db.Column(db.String(200), nullable=False, unique=True)
-    date_added = db.Column(db.DateTime, default=datetime.utcnow)
     
-    # Create a string
-    def __repr__(self):
-        return '<Name %r>' % self.name
-    
-# Create a form class
+# Create a Response form 
 class ResponseForm(FlaskForm):
     name = StringField("Enter your name:", validators=[DataRequired()])
     email = StringField("Enter your email:", validators=[DataRequired()])
@@ -154,9 +175,9 @@ def add_form():
     form = ResponseForm()
     # Validate form
     if form.validate_on_submit():
-        userform = UserForms.query.filter_by(email=form.email.data).first()
+        userform = UsersDB.query.filter_by(email=form.email.data).first()
         if userform is None:
-            userform = UserForms(name=form.name.data, email=form.email.data, description=form.description.data)
+            userform = UsersDB(name=form.name.data, email=form.email.data, description=form.description.data)
             db.session.add(userform)
             db.session.commit()
         name = form.name.data
@@ -164,13 +185,13 @@ def add_form():
         form.email.data = ''
         form.description.data = ''
         flash("Form Submitted Successfully!")
-    our_user_forms = UserForms.query.order_by(UserForms.date_added)
+    our_user_forms = UsersDB.query.order_by(UsersDB.date_added)
     return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms, delete=False)
 
 @app.route('/update_form/<int:id>', methods=["GET", "POST"])
 def update_form(id):
     form = ResponseForm()
-    form_to_update = UserForms.query.get_or_404(id)
+    form_to_update = UsersDB.query.get_or_404(id)
     if request.method == "POST":
         form_to_update.name = request.form['name']
         form_to_update.email = request.form['email']
@@ -189,13 +210,13 @@ def update_form(id):
 def delete_form(id):
     name = None
     form = ResponseForm()
-    form_to_delete = UserForms.query.get_or_404(id)
+    form_to_delete = UsersDB.query.get_or_404(id)
     
     try:
         db.session.delete(form_to_delete)
         db.session.commit()
         flash("Form has been deleted successfully!")
-        our_user_forms = UserForms.query.order_by(UserForms.date_added)
+        our_user_forms = UsersDB.query.order_by(UsersDB.date_added)
         return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms, delete=True)
     except:
         flash("There is a problem! Please try again")
