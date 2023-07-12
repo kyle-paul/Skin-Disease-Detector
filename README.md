@@ -1,4 +1,3 @@
-# Skin Diseases Detector
 [toc]
 
 ## **Problems** 
@@ -25,7 +24,8 @@
 - The HAM10000 dataset is a large collection of multi-source dermatoscopic images of common pigmented skin lesions. More than 50% of lesions have been **confirmed** by pathology, while the ground truth for the rest of the cases was either follow-up, expert consensus, or confirmation by in-vivo confocal microscopy.
 - **Schematic flow of dataset workup methods**: Image and data content from different sources were entered into a pipeline to organize and clean data, with final images being standardized and stored in a common format.
 <br>
-![](https://hackmd.io/_uploads/BJws8u3Yh.png)
+
+<img src="https://hackmd.io/_uploads/BJws8u3Yh.png">
 
 #### **7 most dangerous skin disease categories:**
 
@@ -35,11 +35,11 @@
 |**bcc** ![](https://hackmd.io/_uploads/S1QDSO2t2.png)|Basal cell carcinoma is a common variant of epithelial skin cancer that rarely metastasizes but grows destructively if untreated. It appears in different morphologic variants (flat, nodular, pigmented, cystic),|
 |**bkl** ![](https://hackmd.io/_uploads/BkvqBOhtn.png)| Benign keratosis is a term for harmless skin growths that are related to sun damage or aging. They can look different depending on where they are and what type they are. Some of them can look like skin cancer but are not.|
 |**df** ![](https://hackmd.io/_uploads/Hk7hBuhKn.png)|Dermatofibroma is a benign skin lesion regarded as either a benign proliferation or an inflammatory reaction to minimal trauma. The most common dermatoscopic presentation is reticular lines at the periphery with a central white patch denoting fibrosis|
-|**nv** ![](https://hackmd.io/_uploads/Bk5pHdnF3.png)|Melanocytic nevi are benign neoplasms of melanocytes and appear in a myriad of variants. The variants may differ significantly from a dermatoscopic point of view. In contrast to melanoma they are usually symmetric with regard to the distribution of color and structure|
-|**mel** ![](https://hackmd.io/_uploads/HJ-kUu3Fh.png)|Melanoma is a malignant neoplasm derived from melanocytes that may appear in different variants. If excised in an early stage it can be cured by simple surgical excision. Melanomas can be invasive or noninvasive. Melanomas are usually, albeit not always, chaotic, and some melanoma specific criteria depend on anatomic site.|
-|**vasc**![](https://hackmd.io/_uploads/By1e8u3Kh.png)|Vascular skin lesions in the dataset range from cherry angiomas to angiokeratomas31 and pyogenic granulomas. Hemorrhage is also included in this category. Angiomas are dermatoscopically characterized by red or purple color and solid, well circumscribed structures known as red clods or lacunes.|
+|**nv** <img src="https://hackmd.io/_uploads/Bk5pHdnF3.png">|Melanocytic nevi are benign neoplasms of melanocytes and appear in a myriad of variants. The variants may differ significantly from a dermatoscopic point of view. In contrast to melanoma they are usually symmetric with regard to the distribution of color and structure|
+|**mel** <img src="https://hackmd.io/_uploads/HJ-kUu3Fh.png">|Melanoma is a malignant neoplasm derived from melanocytes that may appear in different variants. If excised in an early stage it can be cured by simple surgical excision. Melanomas can be invasive or noninvasive. Melanomas are usually, albeit not always, chaotic, and some melanoma specific criteria depend on anatomic site.|
+|**vasc**! <img src="https://hackmd.io/_uploads/By1e8u3Kh.png">|Vascular skin lesions in the dataset range from cherry angiomas to angiokeratomas31 and pyogenic granulomas. Hemorrhage is also included in this category. Angiomas are dermatoscopically characterized by red or purple color and solid, well circumscribed structures known as red clods or lacunes.|
 
-![](https://hackmd.io/_uploads/H1pg1Ont2.png)
+<img src="https://hackmd.io/_uploads/H1pg1Ont2.png">
 
 ### **Data Exploration**
 [The final dataset](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000) consists of 10015 dermatoscopic images stored in two folders `HAM10000_images_part_1` and `HAM10000_images_part_2` with a csv file `HAM10000_metadata.csv` to manage the `lession_id` `image_id` `dx`(labels) `dx_type` `age` `sex` `localization`.
