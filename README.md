@@ -91,7 +91,8 @@
 
 | CNN0 accuracy | CNN0 loss |
 | -------- | -------- | 
-| ![cnn0](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/213ba94f-a7b4-46cc-9041-55227ed721a5) |
+| ![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/39c06426-9d9f-4e74-b756-78d1cb91fbc7)| ![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/1aba4a4d-e099-4271-99f2-d44dc6dd1a67)|
+
 
 
 
