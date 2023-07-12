@@ -1,4 +1,5 @@
-[toc]
+# Skin Diseases Detector
+
 ## **Problems** 
 
 ## **How AI with computer vision can solve**
@@ -135,8 +136,3 @@ To run the server backend flask python, run this line of command
 flask --debug run
 ```
 Now, the website should be available at the port `127.0.0.1:5000`
-
-
-
-### **Appendix**
-- **Dermatoscopic** is an adjective that describes something related to dermatoscopy, which is the examination of skin lesions with a dermatoscope. A dermatoscope is a hand-held device that uses light and magnification to show extra details of the skin, hair, or nails that are not visible to the naked eye. Dermatoscopy can help diagnose certain skin conditions, such as melanoma, by revealing specific patterns and features of pigmented skin lesions.
