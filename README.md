@@ -79,7 +79,7 @@
 
 | The model architecture | 
 | -------- | 
-| ![CNN0 h5](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/1d414c01-48ad-4905-9cd5-5bb397c0f51f)| 
+| https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/626af965-c0f6-4f04-b936-0ab767bcdbfa| 
 
 ### **Metrics**
 
