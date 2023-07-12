@@ -39,12 +39,12 @@ def home():
 
 @app.route("/experience", methods=["GET"])
 def experience():
-    return render_template("experience.html")
+    return render_template("experience.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
 
 @app.route("/edit_img", methods=["GET"])
 
 def edit_img():
-    return render_template("edit_img.html")
+    return render_template("edit_img.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
 
 # A function to check if the file extension is allowed
 def allowed_file(filename):
@@ -60,7 +60,7 @@ def uploader():
         image_path = "static/uploads/" + imagefile.filename 
         imagefile.save(os.path.join(app.config['UPLOAD_FOLDER'], filename)) 
         session['image_path'] = image_path 
-        return render_template('experience.html', image_path=image_path, progress_bar_animated=True) 
+        return render_template('experience.html', image_path=image_path, progress_bar_animated=True, user_name_login=user_name_login, email_login=email_login, login_check=login_check) 
     else: 
         return "File not allowed"
 
@@ -72,7 +72,7 @@ def predictor():
         img = cv2.resize(img, (160, 160)) 
         result = model.predict(img.reshape(1, 160, 160, 3)) 
         class_indx = np.argmax(result[0]) 
-        return render_template('experience.html', prediction=classes[class_indx], image_path=image_path, progress_bar_animated=True) 
+        return render_template('experience.html', prediction=classes[class_indx], image_path=image_path, progress_bar_animated=True, user_name_login=user_name_login, email_login=email_login, login_check=login_check) 
     else: return "No image uploaded"
     
 # Create a model (database)
@@ -186,7 +186,7 @@ def add_form():
         form.description.data = ''
         flash("Form Submitted Successfully!")
     our_user_forms = UsersDB.query.order_by(UsersDB.date_added)
-    return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms, delete=False)
+    return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms, delete=False, user_name_login=user_name_login, email_login=email_login, login_check=login_check)
 
 @app.route('/update_form/<int:id>', methods=["GET", "POST"])
 def update_form(id):
@@ -204,7 +204,7 @@ def update_form(id):
             flash("Failure: form information can not be updated!")
             return render_template("update_form.html", form_to_update=form_to_update, form=form)
     else:
-        return render_template("update_form.html", form_to_update=form_to_update, form=form)
+        return render_template("update_form.html", form_to_update=form_to_update, form=form, user_name_login=user_name_login, email_login=email_login, login_check=login_check)
         
 @app.route('/delete_form/<int:id>', methods=["GET", "POST"])
 def delete_form(id):
@@ -220,7 +220,7 @@ def delete_form(id):
         return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms, delete=True)
     except:
         flash("There is a problem! Please try again")
-        return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms)
+        return render_template("add_form.html", name=name, form=form, our_user_forms=our_user_forms, user_name_login=user_name_login, email_login=email_login, login_check=login_check)
             
 
 # Invalid URL
