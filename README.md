@@ -1,5 +1,4 @@
-![Bkl_ZF3Y3](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/2d791001-1001-4ebf-855a-730065dfc7c6)![Syw81t3Fn](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/74dc1777-9338-4537-a589-f46420b80ac4)[toc]
-
+[toc]
 ## **Problems** 
 
 ## **How AI with computer vision can solve**
