@@ -72,6 +72,53 @@ def predictor():
         return render_template('experience.html', prediction=classes[class_indx], image_path=image_path, progress_bar_animated=True) 
     else: return "No image uploaded"
     
+class UsersDB(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  
+    name = db.Column(db.String(200), nullable=False)
+    email =  db.Column(db.String(200), nullable=False, unique=True)
+    user_name = db.Column(db.String(200), nullable=False, unique=True)
+    password = db.Column(db.String(200), nullable=False)
+    description =  db.Column(db.String(200), nullable=False)
+    date_added = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    # Create a string
+    def __repr__(self):
+        return '<Name %r>' % self.name
+    
+class Registration(FlaskForm):
+    name = StringField("Enter your name:", validators=[DataRequired()])
+    email = StringField("Enter your email:", validators=[DataRequired()])
+    user_name = StringField("Enter your user name:", validators=[DataRequired()])
+    password = StringField("Enter your password:", validators=[DataRequired()])
+    submit = SubmitField("Register now")    
+
+
+@app.route("/login", methods=["GET", "POST"]) 
+def login():
+    return render_template('login.html')
+
+@app.route("/registration", methods=["GET", "POST"]) 
+def registration():
+    name = None
+    form = Registration()
+    # Validate form
+    if form.validate_on_submit():
+        user_name = UsersDB.query.filter_by(user_name=form.user_name.data).first()
+        email = UsersDB.query.filter_by(user_name=form.email.data).first()
+        if user_name is None and email is None:
+            user = UsersDB(name=form.name.data, email=form.email.data, user_name=form.user_name.data, password=form.password.data)
+            db.session.add(user)
+            db.session.commit()
+        name = form.name.data
+        form.name.data = ''
+        form.email.data = ''
+        form.user_name.data = ''
+        form.password.data = ''
+        flash("Form Submitted Successfully!")
+    else:
+        flash("This account has already exiisted")
+    registration_form = UsersDB.query.order_by(UsersDB.date_added)
+    return render_template("registration.html", name=name, form=form, registration_form=registration_form)
 
 class UserForms(db.Model):
     id = db.Column(db.Integer, primary_key=True)  
