@@ -25,7 +25,7 @@
 - **Schematic flow of dataset workup methods**: Image and data content from different sources were entered into a pipeline to organize and clean data, with final images being standardized and stored in a common format.
 <br>
 
-<img src="https://hackmd.io/_uploads/BJws8u3Yh.png">
+![BJws8u3Yh](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/edb822c9-2cb8-48f8-81bb-b8e3ec262523)
 
 #### **7 most dangerous skin disease categories:**
 
