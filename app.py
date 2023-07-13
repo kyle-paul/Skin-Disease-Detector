@@ -19,7 +19,7 @@ UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 app.config['SECRET_KEY'] = "hacker@hackathon"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 10 # 10 MB limit
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 10 # 10 MB limits
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user_forms.db'
 db = SQLAlchemy(app)
@@ -27,7 +27,7 @@ migrate = Migrate(app, db)
 
 # Load models
 model_path = 'archive/best_model_and_weights/fine-tune-model.pb/fine-tune-model.h5'
-classes = ['Actinic keratoses and intraepithelial carcinoma', 'basal cell carcinoma', 'benign keratosis-like lesions', 'dermatofibroma', 'melanoma', 'melanocytic nevi', 'vascular lesions']
+classes = ['Actinic keratoses', 'Basal cell carcinoma', 'Benign keratosis', 'Dermatofibroma', 'Melanoma', 'Melanocytic nevi', 'Vascular ']
 model = tf.keras.models.load_model(model_path)
 user_name_login = None
 email_login = None

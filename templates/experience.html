@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://cdn.glitch.global/343e6495-330f-4443-8e57-3bf9de3c1c76/avatar.png?v=1688179675682">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skin Diseases Detector</title>
   </head>
@@ -13,7 +14,7 @@
     {% block main %}
       <div class="container">
         <div class="row">
-          <div class="col">
+          <div class="col" style="max-width: 50%;">
             <h1 class="fw-bold fs-3">Experience the app</h1>
             <form id="upload-form" class="p-3 text-center" action="/upload" method="post" enctype="multipart/form-data">
               <input class="form-control" type="file" name="imagefile" id="imagefile" />
@@ -52,20 +53,73 @@
             {% endif %}
 
             {% if image_path %}
-              <img src="{{ image_path }}"/>
+              <img src="{{ image_path }}" class="mw-100" />
             {% endif %}
 
             <form class="p-3 text-center" action="/predict" method="post">
               <input class="btn btn-primary mt-3" type="submit" value="Predict now" />
             </form>
-
-            
           </div>
-          <div class="col">
-            <h1 class="fw-bold fs-3">Responses</h1>
-            {% if prediction %}
-              <p class="text-left">This is the {{ prediction }} skin disease</p>
-            {% endif %}
+
+          <div class="col mt-5" style="max-width: 50%;">
+            <div class="card bg-dark text-white">
+              <div class="card-header">
+                <h1 class="fw-bold fs-3 ">Responses</h1>
+              </div>
+              <div class="card-body">
+                {% if prediction %}
+                  {% if prediction == 'Actinic keratoses' %}
+                    <p class="bg-dark text-white">
+                      This is the {{ prediction }} skin disease <br />
+                      You have been diagnosed with actinic keratoses or Bowen’s disease, which are precancerous skin lesions that can develop into squamous cell carcinoma, a type of skin cancer. These lesions are usually flat, scaly, and red or brown in color. They are most commonly found on sun-exposed areas of your skin, such as your face, ears, scalp, neck, arms, and hands. Some of them may be caused by a virus called human papillomavirus (HPV). These lesions are not invasive, which means they do not spread to other parts of your body. However, they need to be treated to prevent them from becoming invasive and potentially life-threatening.
+                    </p>
+                    <img src="static/nn_imgs/neural_network_output (7).gif" class="mw-100" alt="Actinic keratoses" />
+
+                    {% elif prediction == 'Basal cell carcinoma' %}
+                    <p class="bg-dark text-white">
+                      This is the {{ prediction }} skin disease <br />
+                      You have been diagnosed with basal cell carcinoma, which is a type of skin cancer that arises from the basal layer of your skin cells. It is the most common form of skin cancer and usually occurs on sun-damaged areas of your skin, such as your nose, forehead, cheeks, and ears. It can have different shapes and colors, such as flat, raised, dark, or shiny. It does not usually spread to other parts of your body, but it can grow deeper into your skin and damage the surrounding tissues and bones if left untreated.
+                    </p>
+                    <img src="static\nn_imgs\neural_network_output (1).gif" class="mw-100" alt="Basal cell carcinoma" />
+
+                    {% elif prediction == 'Benign keratosis' %}
+                    <p class="bg-dark text-white">
+                      This is the {{ prediction }} skin disease <br />
+                      You have been diagnosed with benign keratosis, which is a general term for non-cancerous skin growths that are caused by sun exposure or aging. They can vary in size, shape, color, and texture depending on the type of keratosis and the location of your skin. Some of the common types of benign keratosis are seborrheic keratosis, actinic keratosis, and solar lentigo. They do not pose any health risk, but they can be cosmetically bothersome or confused with skin cancer.
+                    </p>
+                    <img src="static\nn_imgs\neural_network_output (2).gif" class="mw-100" alt="Benign keratosis" />
+
+                    {% elif prediction == 'Dermatofibroma' %}
+                    <p class="bg-dark text-white">This is the {{ prediction }} skin disease <br> 
+                      You have been diagnosed with dermatofibroma, which is a harmless skin bump that is either a result of overgrowth of skin cells or a reaction to a minor injury. It is usually found on the lower legs, but can also occur on other parts of your body. It is typically firm, raised, and brown or pink in color. Under a special device called a dermatoscope, it shows a pattern of fine lines around the edge and a white area in the center due to scar tissue.
+                    </p>
+                    <img src="static\nn_imgs\neural_network_output (3).gif" class="mw-100" alt="Dermatofibroma" />
+
+                    {% elif prediction == 'Melanoma' %}
+                    <p class="bg-dark text-white">
+                      This is the {{ prediction }} skin disease <br />
+                      You have been diagnosed with melanocytic nevi, which are common skin growths that are made of melanocytes, the cells that produce skin pigment. They are also known as moles and can have different shapes, sizes, and colors. They are usually harmless and do not turn into skin cancer. Under a dermatoscope, they show a balanced pattern of color and structure that is similar on both sides.
+                    </p>
+                    <img src="static\nn_imgs\neural_network_output (4).gif" class="mw-100" alt="Melanoma" />
+                    {% elif prediction == 'Melanocytic nevi' %}
+                    <p class="bg-dark text-white">
+                      This is the {{ prediction }} skin disease <br />
+                      You have been diagnosed with melanoma, which is a type of skin cancer that originates from melanocytes, the cells that produce skin pigment. It can have different forms and appearances depending on the stage and location of the tumor. It can be cured if detected and removed early, but it can also spread to other parts of your body and become life-threatening. Under a dermatoscope, melanomas usually show an irregular and asymmetrical pattern of color and structure that is different from normal moles.
+                    </p>
+                    <img src="static\nn_imgs\neural_network_output (5).gif" class="mw-100" alt="Melanocytic nevi" />
+                  {% else %}
+                    <p class="bg-dark text-white">
+                      This is the {{ prediction }} skin disease <br />
+                      You have been diagnosed with vascular skin lesions, which are abnormal growths or changes in the blood vessels of your skin. They can have different causes and types, such as cherry angiomas, angiokeratomas, and pyogenic granulomas. Bleeding under the skin is also considered a vascular lesion. Under a dermatoscope, vascular lesions usually show a red or purple color and round or oval structures that are well defined and filled with blood. These structures are called red clods or lacunes.
+                    </p>
+                    <img src="static\nn_imgs\neural_network_output (6).gif" class="mw-100" alt="Vascular" />
+                  {% endif %}
+                {% endif %}
+                <div class="d-grid gap-2 mt-4">
+                  <a href="{{url_for('add_form')}}" class="btn btn-primary mt-4">Copy and send this response to our doctors</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
