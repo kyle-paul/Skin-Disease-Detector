@@ -90,7 +90,7 @@ Now, the website should be available at the port `127.0.0.1:5000`
 
 ### **Data Exploration**
 [Read Harvard article](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T) 
-[The final dataset](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000) consists of 10015 dermatoscopic images stored in two folders `HAM10000_images_part_1` and `HAM10000_images_part_2` with a csv file `HAM10000_metadata.csv` to manage the `lession_id` `image_id` `dx`(labels) `dx_type` `age` `sex` `localization`.
+[The final dataset](https://drive.google.com/drive/folders/1TrDSH-4agskvCawHsqwm6j29GQlmXjU7) consists of 10015 dermatoscopic images stored in two folders `HAM10000_images_part_1` and `HAM10000_images_part_2` with a csv file `HAM10000_metadata.csv` to manage the `lession_id` `image_id` `dx`(labels) `dx_type` `age` `sex` `localization`.
 - This dataset is unbalanced because it is **biased** towards melanocytic lesions. However, I have already resample the dataset in my jupyter notebook to remove the consequence of bias in the dataset.
 ![rkk9_unFh](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/5b800cb0-833d-4462-ae9a-3271336d8960)
 - The below graph show the distribution of 7 skin diseases across different body parts:
