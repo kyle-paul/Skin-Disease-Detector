@@ -41,6 +41,10 @@ def home():
 def website_guildance():
     return render_template("website_guildance.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
 
+@app.route("/user_guildance/download_guildance")
+def download_guildance():
+    return render_template("download_guildance.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
+
 @app.route("/home/data_gathering")
 def data_gathering():
     return render_template("data_gathering.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
