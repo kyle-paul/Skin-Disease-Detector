@@ -17,6 +17,9 @@ My web application aims to empower people with skin diseases by providing them w
 [![cover demo](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/e225b737-6194-4536-8a7e-d6dc66f419f1)](https://www.youtube.com/watch?v=HY2TxxKwybI)
 
 ### **How to use the code**
+[Click here](https://youtu.be/PZp_XK2nd3w)
+![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/8b052447-0c40-45be-93c9-8796e5049fcc)
+
 First you need to clone this repository to your local system. Open terminal and then paste this command line
 ```
 git clone https://github.com/kyle-paul/Skin-Disease-Detector.git
