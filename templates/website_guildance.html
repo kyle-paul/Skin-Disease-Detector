@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="https://cdn.glitch.global/343e6495-330f-4443-8e57-3bf9de3c1c76/SDD%20logo.png?v=1689302299743">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guildance - How to use this website</title>
+</head>
+<body>
+     <!-- base.html -->
+     {% extends 'base.html' %}
+
+     <!-- content block -->
+     {% block main %}
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+            <th><span>Step</span></th>
+            <th><span>Details</span></th>
+            </tr>
+          </thead>
+        <tr>
+            <td>Optional</td>
+            <td>Read the ultimate goal of project, data gathering, training proces, and results/metrics in the home page</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Create an account by selecting "sign up" option on the dropdown at the upright corner of the website. You have to enter the password and confirm it correctly, otherwise your account can not be created in the database. After registering, you have to check your account by moving to the "send response" at the right sidebar. If your information is displayed like this "name | email | provisonal diagnosis: 1", you have registed account successfully.</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Now after signing up, you have to login by selecting "login" option on the dropdown at the upright corner of the website. You have to enter the same email and password similar to what you have registered into the database. If you fail, there would be a message popup "Failed to login. Try again". If you succeed, there would be a message popup "Login successfully". Now you can see you account appearing at the upright corner of navigation bar.</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Start the process of prediction: fiprst you need take a close photo of your skin disease, or you can choose a sample at the "prediction now" page if you don't have any skin diseases. Next, if your photo is too dark, you can edit it at the "edit your image" page (right sidebar). After editing your image and downloading it, drag it to the uploader at the "prediction now" page. Choose "upload now" and then choose "predict now" and wait. Finally, get your provisional diagnosis and copy it.</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>After copying your provisional diagnosis, you now can paste it into the description input box in the "Send Response" page where you can enter you display name to doctor, you gmail you have logged in and the image for doctors to closely examine. This information is then sent to the gmail of our gmail system for processing. You will receive response as soon as possible, please check your mail box.</td>
+        </tr>
+    </table>
+
+    {% endblock %}
+</body>
+</html>

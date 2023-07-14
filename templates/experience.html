@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="https://cdn.glitch.global/343e6495-330f-4443-8e57-3bf9de3c1c76/avatar.png?v=1688179675682">
+    <link rel="icon" type="image/svg+xml" href="https://cdn.glitch.global/343e6495-330f-4443-8e57-3bf9de3c1c76/SDD%20logo.png?v=1689302299743">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skin Diseases Detector</title>
   </head>
@@ -18,7 +18,9 @@
             <h1 class="fw-bold fs-3">Experience the app</h1>
             <form id="upload-form" class="p-3 text-center" action="/upload" method="post" enctype="multipart/form-data">
               <input class="form-control" type="file" name="imagefile" id="imagefile" />
-              <input class="btn btn-primary mt-3" type="submit" value="Upload now" />
+              <div class="d-grid gap-2">
+                <input class="btn btn-primary mt-3" type="submit" value="Upload now" />
+              </div>
 
               {% if not_file == True %}
                 <!-- Button trigger modal -->
@@ -57,7 +59,9 @@
             {% endif %}
 
             <form class="p-3 text-center" action="/predict" method="post">
+              <div class="d-grid gap-2">
               <input class="btn btn-primary mt-3" type="submit" value="Predict now" />
+              </div>
             </form>
           </div>
 
@@ -123,6 +127,7 @@
                 </div>
               </div>
 
+              <!-- modal for diseases information / comparision table -->
               <div class="modal fade" id="detailed_table" tabindex="-1" aria-labelledby="detailed_table" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                   <div class="modal-content">
@@ -130,6 +135,7 @@
                       <h5 class="modal-title" id="exampleModalLabel">Comparison table</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    
                     <div class="modal-body">
                       <table class="table table-bordered border-primary">
                         <thead>

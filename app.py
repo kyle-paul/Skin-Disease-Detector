@@ -37,6 +37,9 @@ login_check = False
 def home():
     return render_template("home.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
 
+@app.route("/user_guildance/website_guildance")
+def website_guildance():
+    return render_template("website_guildance.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
 
 @app.route("/home/data_gathering")
 def data_gathering():
