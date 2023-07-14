@@ -16,6 +16,7 @@
         <div class="row">
           <div class="col" style="max-width: 50%;">
             <h1 class="fw-bold fs-3">Experience the app</h1>
+            <a href="{{ url_for('download_sample', filename='sample.jpg') }}" type="button" class="badge rounded-pill btn btn-warning me-3 text-decoration-none text-dark"><i class="bi bi-download"></i> Download sample</a>
             <form id="upload-form" class="p-3 text-center" action="/upload" method="post" enctype="multipart/form-data">
               <input class="form-control" type="file" name="imagefile" id="imagefile" />
               <div class="d-grid gap-2">

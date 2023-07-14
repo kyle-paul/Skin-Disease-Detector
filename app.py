@@ -1,5 +1,5 @@
 import tensorflow as tf
-from flask import Flask, render_template, request, redirect, url_for, jsonify, session, flash 
+from flask import Flask, render_template, request, redirect, url_for, jsonify, session, flash, send_from_directory, current_app
 from flask_wtf import FlaskForm
 from flask_sqlalchemy import SQLAlchemy 
 from flask_migrate import Migrate
@@ -69,6 +69,10 @@ def experience():
 
 def edit_img():
     return render_template("edit_img.html", user_name_login=user_name_login, email_login=email_login, login_check=login_check)
+
+@app.route("/download_sample/<filename>")
+def download_sample(filename):
+    return send_from_directory("static/uploads", path=filename)
 
 # A function to check if the file extension is allowed
 def allowed_file(filename):

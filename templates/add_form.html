@@ -72,7 +72,7 @@
                 <td class="d-flex justify-content-between">
                   {{ our_user_form.id }}. {{ our_user_form.name }} - {{ our_user_form.email }} | provisional diagnosis: {{ our_user_form.id }} 
                   <div class="d-flex align-items-center ms-auto">
-                    <a class="badge rounded-pill btn btn-warning me-3 text-decoration-none text-dark"><i class="bi bi-hourglass-split"></i>Wait for doctors' response </a>          
+                    <a class="badge rounded-pill btn btn-warning me-3 text-decoration-none text-dark"><i class="bi bi-hourglass-split"></i>Waiting for doctors' response </a>          
                     <a href="{{ url_for('update_form', id = our_user_form.id) }}" type="button" class="badge rounded-pill btn btn-primary me-3 text-decoration-none"><i class="bi bi-pencil-fill"></i> Edit</a>
                     <a href="" type="button" class="badge rounded-pill btn btn-danger me-3 text-decoration-none" data-bs-toggle="modal" data-bs-target="#remove_form"><i class="bi bi-trash-fill"></i> Remove</a>
                   </div>
