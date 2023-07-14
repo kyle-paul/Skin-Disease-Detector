@@ -53,8 +53,6 @@
               {{ form.email.label(class = 'form-label mt-4') }}
               {{ form.email(class = 'form-control') }}
               {{ form.description.label(class = 'form-label mt-4') }}
-              <!-- {{ form.description.label(class = 'form-label mt-4') }} -->
-              <!-- Replace this line with the following -->
               <textarea class="form-control" name="description" rows="5"></textarea>
               <br />
               {{ form.submit(class = 'btn btn-primary') }}
@@ -65,7 +63,7 @@
             {% for our_user_form in our_user_forms %}
               <tr>
                 <td class="d-flex justify-content-between">
-                  {{ our_user_form.id }}. {{ our_user_form.name }} - {{ our_user_form.email }} | {{ our_user_form.description }}
+                  {{ our_user_form.id }}. {{ our_user_form.name }} - {{ our_user_form.email }} | provisional diagnosis: {{ our_user_form.id }} 
                   <div class="d-flex align-items-center ms-auto">
                     <a class="badge rounded-pill btn btn-warning me-3 text-decoration-none text-dark"><i class="bi bi-hourglass-split"></i> Wait for the doctor to check</a>
                     <a href="{{ url_for('update_form', id = our_user_form.id) }}" type="button" class="badge rounded-pill btn btn-primary me-3 text-decoration-none"><i class="bi bi-pencil-fill"></i> Edit</a>
