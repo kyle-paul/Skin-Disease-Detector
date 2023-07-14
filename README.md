@@ -13,7 +13,7 @@ My web application aims to empower people with skin diseases by providing them w
 
 ## **Website application**
 ### **Video Demo** 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HY2TxxKwybI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[Click here](https://www.youtube.com/watch?v=HY2TxxKwybI)
 
 ### **How to use the code**
 First you need to clone this repository to your local system. Open terminal and then paste this command line
