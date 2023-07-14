@@ -25,7 +25,7 @@ Next move into the cloned directory
 ```
 cd Skin-Disease-Detector
 ```
-Type this to open your default code editor. As usual, it will open vscode if you use vscode as your default code editor
+(optional) Type this to open your default code editor. As usual, it will open vscode if you use vscode as your default code editor
 ```
 . code
 ```
