@@ -13,7 +13,7 @@ My web application aims to empower people with skin diseases by providing them w
 
 ## **Website application**
 ### **Video Demo** 
-[[cover demo](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/10465699-6fba-4c2c-bea0-8d05c972f31d)](https://www.youtube.com/watch?v=HY2TxxKwybI)
+![Click here](https://www.youtube.com/watch?v=HY2TxxKwybI)
 
 ### **How to use the code**
 First you need to clone this repository to your local system. Open terminal and then paste this command line
