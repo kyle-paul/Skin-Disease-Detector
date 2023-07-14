@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="mobile-web-app-capable" content="yes">
     <title>
-        Data Gathering - HackMD
+        Data Gathering - Skin Diseases Detector
     </title>
     <link rel="icon" type="image/svg+xml" href="https://cdn.glitch.global/343e6495-330f-4443-8e57-3bf9de3c1c76/avatar.png?v=1688179675682">
 
@@ -33,15 +33,7 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-enabled comment-inner" data-hard-breaks="true" style=""><div class="title-tags-preview"><h1 class="font-bold text-19 leading-120 !mt-0 text-zinc-800" id="Untitled" data-id="Untitled" data-toggle="tooltip" data-placement="bottom" data-container=".navbar-default" data-offset="0,5" data-original-title="Title last changed by KylePaul at 7/13/2023, 6:44:35 AM"><a class="anchor hidden-xs" href="#Untitled" title="Untitled"><span class="octicon octicon-link"></span></a>Data Gathering</h1><div class="flex flex-wrap gap-1 mb-4"></div></div><p><span class="toc"><ul>
-<li class="invisable-node"><ul>
-<li><a href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The obstacles in automated diagnosis of pigmented skin lesions">The obstacles in automated diagnosis of pigmented skin lesions</a></li>
-<li><a href="#Dataset-preparation" title="Dataset preparation">Dataset preparation</a></li>
-<li><a href="#7-most-dangerous-skin-disease-categories" title="7 most dangerous skin disease categories:">7 most dangerous skin disease categories:</a></li>
-</ul>
-</li>
-</ul>
-</span></p><h2 id="The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" data-id="The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" style=""><a class="anchor hidden-xs" href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions"><span class="octicon octicon-link"></span></a><strong><span>The obstacles in automated diagnosis of pigmented skin lesions</span></strong></h2><ul>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true" style=""><div class="title-tags-preview"><h1 class="font-bold text-19 leading-120 !mt-0 text-zinc-800" id="Untitled" data-id="Untitled" data-toggle="tooltip" data-placement="bottom" data-container=".navbar-default" data-offset="0,5" data-original-title="Title last changed by KylePaul at 7/14/2023, 7:29:50 AM"><a class="anchor hidden-xs" href="#Untitled" title="Untitled"><span class="octicon octicon-link"></span></a><strong>Data Gathering</strong></h1><div class="flex flex-wrap gap-1 mb-4"></div></div><p><a href="https://drive.google.com/drive/folders/1TrDSH-4agskvCawHsqwm6j29GQlmXjU7" target="_blank" rel="noopener"><span>Link dataset</span></a></p><h3 id="The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" data-id="The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" style=""><a class="anchor hidden-xs" href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions"><span class="octicon octicon-link"></span></a><strong><span>The obstacles in automated diagnosis of pigmented skin lesions</span></strong></h3><ul>
 <li><span>Training of neural networks for automated diagnosis of pigmented skin lesions is hampered by the small size and lack of diversity of available datasets of dermatoscopic images</span></li>
 <li><span>Building a classifier for multiple diseases is more challenging than binary classification. Currently, reliable multi-class predictions are only available for clinical images of skin diseases but not for dermatoscopic images.</span></li>
 <li><span>With the HAM10000 dataset below and my transfer-learning model, I hope that I can overcome thoses obstacles so that it could serve as benchmark set for the comparisons of humans and machines</span></li>
@@ -74,11 +66,11 @@
 <td><span>Homo sapiens • skin of body</span></td>
 </tr>
 </tbody>
-</table><h2 id="Dataset-preparation" data-id="Dataset-preparation" style=""><a class="anchor hidden-xs" href="#Dataset-preparation" title="Dataset-preparation"><span class="octicon octicon-link"></span></a><strong><span>Dataset preparation</span></strong></h2><ul>
+</table><h4 id="Dataset-preparation" data-id="Dataset-preparation" style=""><a class="anchor hidden-xs" href="#Dataset-preparation" title="Dataset-preparation"><span class="octicon octicon-link"></span></a><strong><span>Dataset preparation</span></strong></h4><ul>
 <li><span>The HAM10000 dataset is a large collection of multi-source dermatoscopic images of common pigmented skin lesions. More than 50% of lesions have been </span><strong><span>confirmed</span></strong><span> by pathology, while the ground truth for the rest of the cases was either follow-up, expert consensus, or confirmation by in-vivo confocal microscopy.</span></li>
 <li><strong><span>Schematic flow of dataset workup methods</span></strong><span>: Image and data content from different sources were entered into a pipeline to organize and clean data, with final images being standardized and stored in a common format.</span><br>
 <br></li>
-</ul><img src="https://hackmd.io/_uploads/BJws8u3Yh.png"><h2 id="7-most-dangerous-skin-disease-categories" data-id="7-most-dangerous-skin-disease-categories" style=""><a class="anchor hidden-xs" href="#7-most-dangerous-skin-disease-categories" title="7-most-dangerous-skin-disease-categories"><span class="octicon octicon-link"></span></a><strong><span>7 most dangerous skin disease categories:</span></strong></h2><table>
+</ul><img src="https://hackmd.io/_uploads/BJws8u3Yh.png"><h4 id="7-most-dangerous-skin-disease-categories" data-id="7-most-dangerous-skin-disease-categories" style=""><a class="anchor hidden-xs" href="#7-most-dangerous-skin-disease-categories" title="7-most-dangerous-skin-disease-categories"><span class="octicon octicon-link"></span></a><strong><span>7 most dangerous skin disease categories:</span></strong></h4><table>
 <thead>
 <tr>
 <th><span>Categories</span></th>
@@ -124,9 +116,11 @@
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
 <li class="invisable-node"><ul class="nav">
-<li><a href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The obstacles in automated diagnosis of pigmented skin lesions">The obstacles in automated diagnosis of pigmented skin lesions</a></li>
+<li class=""><a href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The obstacles in automated diagnosis of pigmented skin lesions">The obstacles in automated diagnosis of pigmented skin lesions</a><ul class="nav">
 <li><a href="#Dataset-preparation" title="Dataset preparation">Dataset preparation</a></li>
-<li><a href="#7-most-dangerous-skin-disease-categories" title="7 most dangerous skin disease categories:">7 most dangerous skin disease categories:</a></li>
+<li class=""><a href="#7-most-dangerous-skin-disease-categories" title="7 most dangerous skin disease categories:">7 most dangerous skin disease categories:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -137,9 +131,11 @@
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
 <li class="invisable-node"><ul class="nav">
-<li><a href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The obstacles in automated diagnosis of pigmented skin lesions">The obstacles in automated diagnosis of pigmented skin lesions</a></li>
-<li><a href="#Dataset-preparation" title="Dataset preparation">Dataset preparation</a></li>
-<li><a href="#7-most-dangerous-skin-disease-categories" title="7 most dangerous skin disease categories:">7 most dangerous skin disease categories:</a></li>
+<li class=""><a href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The obstacles in automated diagnosis of pigmented skin lesions">The obstacles in automated diagnosis of pigmented skin lesions</a><ul class="nav">
+<li class=""><a href="#Dataset-preparation" title="Dataset preparation">Dataset preparation</a></li>
+<li class=""><a href="#7-most-dangerous-skin-disease-categories" title="7 most dangerous skin disease categories:">7 most dangerous skin disease categories:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
