@@ -1,5 +1,4 @@
 absl-py==1.4.0
-alembic==1.11.1
 astunparse==1.6.3        
 blinker==1.6.2
 cachetools==5.3.1        
