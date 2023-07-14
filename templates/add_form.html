@@ -52,6 +52,13 @@
               {{ form.name(class = 'form-control') }}
               {{ form.email.label(class = 'form-label mt-4') }}
               {{ form.email(class = 'form-control') }}
+              
+              <br>
+              <div>Upload image of your skin</div>
+              <div class="input-group mb-3 mt-2">
+                <input type="file" class="form-control" id="inputGroupFile01">
+              </div>
+              
               {{ form.description.label(class = 'form-label mt-4') }}
               <textarea class="form-control" name="description" rows="5"></textarea>
               <br />
@@ -65,7 +72,7 @@
                 <td class="d-flex justify-content-between">
                   {{ our_user_form.id }}. {{ our_user_form.name }} - {{ our_user_form.email }} | provisional diagnosis: {{ our_user_form.id }} 
                   <div class="d-flex align-items-center ms-auto">
-                    <form action="https://formsubmit.co/skindiseasedetector@gmail.com", method='POST'>
+                    <form target="_blank" action="https://formsubmit.co/skindiseasedetector@gmail.com" method="POST">
                       <a class="badge rounded-pill btn btn-warning me-3 text-decoration-none text-dark"><i class="bi bi-hourglass-split"></i>Send to doctors</a>
                     </form>
      
@@ -75,7 +82,7 @@
                 </td>
               </tr>
 
-              <!-- Modal -->
+              <!-- Modal remove-->
               <div class="modal fade" id="remove_form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content bg-dark">
@@ -91,6 +98,8 @@
                   </div>
                 </div>
               </div>
+
+
             {% endfor %}
           </table>
         {% endif %}
