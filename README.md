@@ -1,6 +1,9 @@
 # Skin Diseases Detector (Using Machine Learning and Telehealth to Detect and Treat Skin Diseases)
+[![> Jupytert Notebook](https://img.shields.io/badge/Jupyter%20Notebook-blue)](https://github.com/kyle-paul/Skin-Disease-Detector/blob/main/archive/train.ipynb)
+[![> Dataset](https://img.shields.io/badge/Dataset-red)](https://drive.google.com/drive/folders/1TrDSH-4agskvCawHsqwm6j29GQlmXjU7?usp=sharing)
+[![> Video Demo](https://img.shields.io/badge/Video%20Demo-yellow)](https://drive.google.com/drive/folders/1TrDSH-4agskvCawHsqwm6j29GQlmXjU7?usp=sharing)
 
-## *Table content*
+## **Table content**
 
 - [Project Description](#project-description)
 - [Website application](#website-application)
