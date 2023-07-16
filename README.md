@@ -2,7 +2,7 @@
 [![> Jupytert Notebook](https://img.shields.io/badge/Jupyter%20Notebook-blue)](https://github.com/kyle-paul/Skin-Disease-Detector/blob/main/archive/train.ipynb)
 [![> Dataset](https://img.shields.io/badge/Dataset-red)](https://drive.google.com/drive/folders/1TrDSH-4agskvCawHsqwm6j29GQlmXjU7?usp=sharing)
 [![> Video Demo](https://img.shields.io/badge/Video%20Demo-yellow)](https://youtu.be/ZoB2lUUoZJY)
-[![> Zip file](https://img.shields.io/badge/Zip%20file-black)](https://drive.google.com/drive/folders/1TrDSH-4agskvCawHsqwm6j29GQlmXjU7?usp=sharing)
+[![> Zip file](https://img.shields.io/badge/Zip%20file-black)](https://drive.google.com/file/d/1OtVb0hTDZxLMmpYicr41E1cHw_jHTvoJ/view?usp=sharing)
 
 ## **Table content**
 
