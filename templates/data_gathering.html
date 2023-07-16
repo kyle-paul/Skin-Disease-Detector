@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="mobile-web-app-capable" content="yes">
     <title>
-        Data Gathering - Skin Diseases Detector
+        Data gathering - HackMD
     </title>
     <link rel="icon" type="image/svg+xml" href="https://cdn.glitch.global/343e6495-330f-4443-8e57-3bf9de3c1c76/SDD%20logo.png?v=1689302299743">
 
@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true" style=""><div class="title-tags-preview"><h1 class="font-bold text-19 leading-120 !mt-0 text-zinc-800" id="Untitled" data-id="Untitled" data-toggle="tooltip" data-placement="bottom" data-container=".navbar-default" data-offset="0,5" data-original-title="Title last changed by KylePaul at 7/14/2023, 7:29:50 AM"><a class="anchor hidden-xs" href="#Untitled" title="Untitled"><span class="octicon octicon-link"></span></a><strong>Data Gathering</strong></h1><div class="flex flex-wrap gap-1 mb-4"></div></div><p><a href="https://drive.google.com/drive/folders/1TrDSH-4agskvCawHsqwm6j29GQlmXjU7" target="_blank" rel="noopener"><span>Link dataset</span></a></p><h3 id="The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" data-id="The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" style=""><a class="anchor hidden-xs" href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions"><span class="octicon octicon-link"></span></a><strong><span>The obstacles in automated diagnosis of pigmented skin lesions</span></strong></h3><ul>
+    <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true" style=""><div class="title-tags-preview"><h1 class="font-bold text-19 leading-120 !mt-0 text-zinc-800" id="Untitled" data-id="Untitled" data-toggle="tooltip" data-placement="bottom" data-container=".navbar-default" data-offset="0,5" data-original-title="Title last changed by KylePaul at 7/14/2023, 2:22:09 PM"><a class="anchor hidden-xs" href="#Untitled" title="Untitled"><span class="octicon octicon-link"></span></a><strong>Data Gathering</strong></h1><div class="flex flex-wrap gap-1 mb-4"></div></div><h3 id="The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" data-id="The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" style=""><a class="anchor hidden-xs" href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions"><span class="octicon octicon-link"></span></a><strong><span>The obstacles in automated diagnosis of pigmented skin lesions</span></strong></h3><ul>
 <li><span>Training of neural networks for automated diagnosis of pigmented skin lesions is hampered by the small size and lack of diversity of available datasets of dermatoscopic images</span></li>
 <li><span>Building a classifier for multiple diseases is more challenging than binary classification. Currently, reliable multi-class predictions are only available for clinical images of skin diseases but not for dermatoscopic images.</span></li>
 <li><span>With the HAM10000 dataset below and my transfer-learning model, I hope that I can overcome thoses obstacles so that it could serve as benchmark set for the comparisons of humans and machines</span></li>
@@ -66,11 +66,11 @@
 <td><span>Homo sapiens • skin of body</span></td>
 </tr>
 </tbody>
-</table><h4 id="Dataset-preparation" data-id="Dataset-preparation" style=""><a class="anchor hidden-xs" href="#Dataset-preparation" title="Dataset-preparation"><span class="octicon octicon-link"></span></a><strong><span>Dataset preparation</span></strong></h4><ul>
+</table><h3 id="Dataset-preparation" data-id="Dataset-preparation" style=""><a class="anchor hidden-xs" href="#Dataset-preparation" title="Dataset-preparation"><span class="octicon octicon-link"></span></a><strong><span>Dataset preparation</span></strong></h3><ul>
 <li><span>The HAM10000 dataset is a large collection of multi-source dermatoscopic images of common pigmented skin lesions. More than 50% of lesions have been </span><strong><span>confirmed</span></strong><span> by pathology, while the ground truth for the rest of the cases was either follow-up, expert consensus, or confirmation by in-vivo confocal microscopy.</span></li>
 <li><strong><span>Schematic flow of dataset workup methods</span></strong><span>: Image and data content from different sources were entered into a pipeline to organize and clean data, with final images being standardized and stored in a common format.</span><br>
 <br></li>
-</ul><img src="https://hackmd.io/_uploads/BJws8u3Yh.png"><h4 id="7-most-dangerous-skin-disease-categories" data-id="7-most-dangerous-skin-disease-categories" style=""><a class="anchor hidden-xs" href="#7-most-dangerous-skin-disease-categories" title="7-most-dangerous-skin-disease-categories"><span class="octicon octicon-link"></span></a><strong><span>7 most dangerous skin disease categories:</span></strong></h4><table>
+</ul><p><img src="https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/81d76a22-7b63-4e7a-a1bf-8370d0415287" alt="data_gather" loading="lazy"></p><h3 id="7-most-dangerous-skin-disease-categories" data-id="7-most-dangerous-skin-disease-categories" style=""><a class="anchor hidden-xs" href="#7-most-dangerous-skin-disease-categories" title="7-most-dangerous-skin-disease-categories"><span class="octicon octicon-link"></span></a><strong><span>7 most dangerous skin disease categories:</span></strong></h3><table>
 <thead>
 <tr>
 <th><span>Categories</span></th>
@@ -79,35 +79,35 @@
 </thead>
 <tbody>
 <tr>
-<td><strong><span>akiec</span></strong><span>   </span><img src="https://hackmd.io/_uploads/Hk5REdhYh.png" alt="" loading="lazy"></td>
+<td><strong><span>akiec</span></strong><span>  </span><img src="https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/63666c43-47d0-47d5-b006-e055367181dc" alt="Hk5REdhYh" loading="lazy"></td>
 <td><span>Actinic keratoses and Bowen’s disease are non-invasive forms of skin cancer that can be treated without surgery. they can either progress to invasive squamous cell carcinom or not. They are usually caused by sun damage and have no pigment, but some cases may be pigmented or caused by a virus. They can become invasive if not treated.</span></td>
 </tr>
 <tr>
-<td><strong><span>bcc</span></strong><span> </span><img src="https://hackmd.io/_uploads/S1QDSO2t2.png" alt="" loading="lazy"></td>
+<td><strong><span>bcc</span></strong><img src="https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/0c4a333e-43ff-44ed-815a-c42d2c7426ff" alt="S1QDSO2t2" loading="lazy"></td>
 <td><span>Basal cell carcinoma is a common variant of epithelial skin cancer that rarely metastasizes but grows destructively if untreated. It appears in different morphologic variants (flat, nodular, pigmented, cystic),</span></td>
 </tr>
 <tr>
-<td><strong><span>bkl</span></strong><span> </span><img src="https://hackmd.io/_uploads/BkvqBOhtn.png" alt="" loading="lazy"></td>
+<td><strong><span>bkl</span></strong><span> </span><img src="https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/9a386d4c-62d2-418d-8028-e6753a6e4e83" alt="BkvqBOhtn" loading="lazy"></td>
 <td><span>Benign keratosis is a term for harmless skin growths that are related to sun damage or aging. They can look different depending on where they are and what type they are. Some of them can look like skin cancer but are not.</span></td>
 </tr>
 <tr>
-<td><strong><span>df</span></strong><span> </span><img src="https://hackmd.io/_uploads/Hk7hBuhKn.png" alt="" loading="lazy"></td>
+<td><strong><span>df</span></strong><img src="https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/15c78699-3a80-4ae3-ac7b-3289e4210ef4" alt="Hk7hBuhKn" loading="lazy"></td>
 <td><span>Dermatofibroma is a benign skin lesion regarded as either a benign proliferation or an inflammatory reaction to minimal trauma. The most common dermatoscopic presentation is reticular lines at the periphery with a central white patch denoting fibrosis</span></td>
 </tr>
 <tr>
-<td><strong><span>nv</span></strong><span> </span><img src="https://hackmd.io/_uploads/Bk5pHdnF3.png"></td>
+<td><strong><span>nv</span></strong><img src="https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/fd2f10f6-cc0a-4362-804b-4b4ba4ba95b6" alt="Bk5pHdnF3" loading="lazy"></td>
 <td><span>Melanocytic nevi are benign neoplasms of melanocytes and appear in a myriad of variants. The variants may differ significantly from a dermatoscopic point of view. In contrast to melanoma they are usually symmetric with regard to the distribution of color and structure</span></td>
 </tr>
 <tr>
-<td><strong><span>mel</span></strong><span> </span><img src="https://hackmd.io/_uploads/HJ-kUu3Fh.png"></td>
+<td><strong><span>mel</span></strong><img src="https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/d7e4ebcc-0003-4779-b5dc-03c3bdf7ce48" alt="HJ-kUu3Fh" loading="lazy"></td>
 <td><span>Melanoma is a malignant neoplasm derived from melanocytes that may appear in different variants. If excised in an early stage it can be cured by simple surgical excision. Melanomas can be invasive or noninvasive. Melanomas are usually, albeit not always, chaotic, and some melanoma specific criteria depend on anatomic site.</span></td>
 </tr>
 <tr>
-<td><strong><span>vasc</span></strong><span> </span><img src="https://hackmd.io/_uploads/By1e8u3Kh.png"></td>
+<td><strong><span>vasc</span></strong><span> </span><img src="https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/2218986e-06a0-4e65-afaa-f5d3a161093e" alt="By1e8u3Kh" loading="lazy"></td>
 <td><span>Vascular skin lesions in the dataset range from cherry angiomas to angiokeratomas31 and pyogenic granulomas. Hemorrhage is also included in this category. Angiomas are dermatoscopically characterized by red or purple color and solid, well circumscribed structures known as red clods or lacunes.</span></td>
 </tr>
 </tbody>
-</table><img src="https://hackmd.io/_uploads/H1pg1Ont2.png"></div>
+</table><p><img src="https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/75174552-d1fa-4280-ba74-cda521daae79" alt="H1pg1Ont2" loading="lazy"></p></div>
     <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
         <div class="pull-right dropdown">
             <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
@@ -116,11 +116,9 @@
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
 <li class="invisable-node"><ul class="nav">
-<li class=""><a href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The obstacles in automated diagnosis of pigmented skin lesions">The obstacles in automated diagnosis of pigmented skin lesions</a><ul class="nav">
+<li><a href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The obstacles in automated diagnosis of pigmented skin lesions">The obstacles in automated diagnosis of pigmented skin lesions</a></li>
 <li><a href="#Dataset-preparation" title="Dataset preparation">Dataset preparation</a></li>
-<li class=""><a href="#7-most-dangerous-skin-disease-categories" title="7 most dangerous skin disease categories:">7 most dangerous skin disease categories:</a></li>
-</ul>
-</li>
+<li><a href="#7-most-dangerous-skin-disease-categories" title="7 most dangerous skin disease categories:">7 most dangerous skin disease categories:</a></li>
 </ul>
 </li>
 </ul>
@@ -131,11 +129,9 @@
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
 <li class="invisable-node"><ul class="nav">
-<li class=""><a href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The obstacles in automated diagnosis of pigmented skin lesions">The obstacles in automated diagnosis of pigmented skin lesions</a><ul class="nav">
-<li class=""><a href="#Dataset-preparation" title="Dataset preparation">Dataset preparation</a></li>
-<li class=""><a href="#7-most-dangerous-skin-disease-categories" title="7 most dangerous skin disease categories:">7 most dangerous skin disease categories:</a></li>
-</ul>
-</li>
+<li><a href="#The-obstacles-in-automated-diagnosis-of-pigmented-skin-lesions" title="The obstacles in automated diagnosis of pigmented skin lesions">The obstacles in automated diagnosis of pigmented skin lesions</a></li>
+<li><a href="#Dataset-preparation" title="Dataset preparation">Dataset preparation</a></li>
+<li><a href="#7-most-dangerous-skin-disease-categories" title="7 most dangerous skin disease categories:">7 most dangerous skin disease categories:</a></li>
 </ul>
 </li>
 </ul>

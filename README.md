@@ -1,5 +1,19 @@
 # Skin Diseases Detector (Using Machine Learning and Telehealth to Detect and Treat Skin Diseases)
 
+## *Table content*
+
+- [Project Description](#project-description)
+- [Website application](#website-application)
+    - [Video Demo](#video-demo)
+    - [How to use the code](#how-to-use-the-code)
+- [Training process](#training-process)
+    - [Data gathering](#data-gathering)
+    - [Data exploration](#data-exploration)
+    - [Data processing](#data-processing)
+    - [Training model](#training-model)
+        - [Transfer learning](#transfer-learning-with-mobilenet_v2)
+        - [Train from scratch](#train-from-scratch)
+
 ## **Project Description** 
 Skin diseases are conditions that affect your skin and may cause rashes, inflammation, itchiness or other skin changes. Some skin diseases are minor, while others can be serious and even life-threatening. One of the major complications of some skin diseases is the increased risk of skin cancer, which is the uncontrolled growth of abnormal skin cells. Skin cancer can be caused by various factors, such as sun exposure, genetics, or infections.
 
@@ -13,8 +27,13 @@ My web application aims to empower people with skin diseases by providing them w
 
 ## **Website application**
 ### **Video Demo** 
+[Link here](https://www.youtube.com/watch?v=HY2TxxKwybI)
+[![cover demo](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/e225b737-6194-4536-8a7e-d6dc66f419f1)](https://www.youtube.com/watch?v=HY2TxxKwybI)
 
 ### **How to use the code**
+[Click here](https://youtu.be/PZp_XK2nd3w)
+![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/8b052447-0c40-45be-93c9-8796e5049fcc)
+
 First you need to clone this repository to your local system. Open terminal and then paste this command line
 ```
 git clone https://github.com/kyle-paul/Skin-Disease-Detector.git
@@ -23,7 +42,7 @@ Next move into the cloned directory
 ```
 cd Skin-Disease-Detector
 ```
-Type this to open your default code editor. As usual, it will open vscode if you use vscode as your default code editor
+(optional) Type this to open your default code editor. As usual, it will open vscode if you use vscode as your default code editor
 ```
 . code
 ```
