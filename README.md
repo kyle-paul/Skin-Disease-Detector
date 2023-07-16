@@ -31,7 +31,7 @@ My web application aims to empower people with skin diseases by providing them w
 
 ## **Website application**
 ### **Video Demo** 
-[Link here](https://www.youtube.com/watch?v=HY2TxxKwybI)
+[Link here](https://youtu.be/ZoB2lUUoZJY)
 [![cover demo](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/e225b737-6194-4536-8a7e-d6dc66f419f1)](https://youtu.be/ZoB2lUUoZJY)
 
 ### **How to use the code**
