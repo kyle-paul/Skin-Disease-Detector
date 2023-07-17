@@ -10,6 +10,7 @@
 - [Website application](#website-application)
     - [Video Demo](#video-demo)
     - [How to use the code](#how-to-use-the-code)
+    - [Code structure](#code-structure)
 - [Training process](#training-process)
     - [Data gathering](#data-gathering)
     - [Data exploration](#data-exploration)
@@ -71,6 +72,102 @@ To run the server backend flask python, run this line of command
 flask --debug run
 ```
 Now, the website should be available at the port `127.0.0.1:5000`
+
+#### Code structure
+    .
+    ├── Dockerfile
+    ├── README.md
+    ├── app.py
+    ├── archive
+    │   ├── best_model_and_weights
+    │   │   ├── best-model
+    │   │   │   ├── CNN0.h5
+    │   │   │   ├── best_model.h5
+    │   │   │   └── best_model_weights.h5
+    │   │   └── fine-tune-model.pb
+    │   │       ├── fine-tune-model-weights.h5
+    │   │       ├── fine-tune-model.h5
+    │   │       ├── fingerprint.pb
+    │   │       ├── keras_metadata.pb
+    │   │       ├── saved_model.pb
+    │   │       └── variables
+    │   │           ├── variables.data-00000-of-00001
+    │   │           └── variables.index
+    │   ├── data
+    │   │   ├── HAM10000_metadata.csv
+    │   │   └── skin_df.csv
+    │   ├── images
+    │   │   ├── CNN0.h5.png
+    │   │   ├── categories.png
+    │   │   ├── cnn architecture from scratch.gif
+    │   │   ├── cnn0_acc.png
+    │   │   ├── cnn0_loss.png
+    │   │   ├── convolutional.png
+    │   │   ├── data_gathering.png
+    │   │   ├── diseases_type.png
+    │   │   ├── fine-tune-model.h5.png
+    │   │   ├── fine-tune-model.h5.svg
+    │   │   ├── fine-tuned model architecture.gif
+    │   │   ├── gender_distribution.png
+    │   │   ├── horizontal_fine-tune-model_.h5.png
+    │   │   ├── localization_distribution.png
+    │   │   ├── metrics_finetun2.png
+    │   │   └── metrics_finetune.png
+    │   ├── paper.pdf
+    │   └── train.ipynb
+    ├── instance
+    │   └── user_forms.db
+    ├── migrations
+    │   ├── README
+    │   ├── alembic.ini
+    │   ├── env.py
+    │   ├── script.py.mako
+    │   └── versions
+    │       └── e6771a864d10_.py
+    ├── requirements.txt
+    ├── start.sh
+    ├── static
+    │   ├── css
+    │   │   ├── bootstrap.min.css
+    │   │   ├── editing.css
+    │   │   ├── registration.css
+    │   │   └── style.css
+    │   ├── data_display.gif
+    │   ├── js
+    │   │   ├── bootstrap.bundle.min.js
+    │   │   ├── editing.js
+    │   │   ├── jquery-3.5.1.js
+    │   │   └── script.js
+    │   ├── nn_imgs
+    │   │   ├── neural_network_output (1).gif
+    │   │   ├── neural_network_output (2).gif
+    │   │   ├── neural_network_output (3).gif
+    │   │   ├── neural_network_output (4).gif
+    │   │   ├── neural_network_output (5).gif
+    │   │   ├── neural_network_output (6).gif
+    │   │   └── neural_network_output (7).gif
+    │   ├── placeholder.svg
+    │   └── uploads
+    │       └── sample.jpg
+    └── templates
+        ├── 404.html
+        ├── 505.html
+        ├── add_form.html
+        ├── base.html
+        ├── data_gathering.html
+        ├── download_guildance.html
+        ├── edit_img.html
+        ├── experience.html
+        ├── home.html
+        ├── login.html
+        ├── navbar.html
+        ├── registration.html
+        ├── result_metrics.html
+        ├── sidebar.html
+        ├── training_process.html
+        ├── ultimate_goal.html
+        ├── update_form.html
+        └── website_guildance.html
 
 
 ## **Training process**
@@ -176,3 +273,4 @@ The model is learning well from the data and has low error on both training and 
 | CNN0 accuracy | CNN0 loss |
 | -------- | -------- | 
 | ![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/39c06426-9d9f-4e74-b756-78d1cb91fbc7)| ![image](https://github.com/kyle-paul/Skin-Disease-Detector/assets/117391498/1aba4a4d-e099-4271-99f2-d44dc6dd1a67)|
+
